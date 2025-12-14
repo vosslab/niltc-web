@@ -18,12 +18,12 @@ def parse_args():
 	Returns:
 		argparse.Namespace: Parsed arguments.
 	"""
-	parser = argparse.ArgumentParser(description="Generate Past Shows pages from YAML")
+	parser = argparse.ArgumentParser(description="Generate Past Shows pages from data/shows.yml")
 
 	parser.add_argument(
 		'-i', '--input', dest='input_file', required=False, type=str,
-		default='data/past_shows.yml',
-		help='Input YAML file (default: data/past_shows.yml)',
+		default='data/shows.yml',
+		help='Input YAML file (default: data/shows.yml)',
 	)
 	parser.add_argument(
 		'-d', '--docs-dir', dest='docs_dir', required=False, type=str,
@@ -51,7 +51,7 @@ def parse_args():
 #============================================
 def read_yaml_file(yaml_path: str) -> dict:
 	"""
-	Read the past shows YAML data file.
+	Read a YAML file.
 
 	Args:
 		yaml_path (str): YAML file path.
@@ -81,63 +81,147 @@ def normalize_url(url: str) -> str:
 
 
 #============================================
-def normalize_shows_by_year(raw: dict) -> dict:
+def parse_iso_date(date_text: str) -> datetime.date:
 	"""
-	Normalize and validate shows_by_year content.
+	Parse ISO YYYY-MM-DD date string.
+
+	Args:
+		date_text (str): Date string.
+
+	Returns:
+		datetime.date: Parsed date.
+	"""
+	date_text = str(date_text).strip()
+	return datetime.date.fromisoformat(date_text)
+
+
+#============================================
+def normalize_pictures(pictures_raw) -> list:
+	"""
+	Normalize pictures into a list of {url: ...} dicts.
+
+	Allowed inputs:
+	- list[str] of URLs
+	- list[dict] containing url keys
+
+	Args:
+		pictures_raw: Raw pictures value from YAML.
+
+	Returns:
+		list: List of dicts with key 'url'.
+	"""
+	if not pictures_raw:
+		return []
+
+	if not isinstance(pictures_raw, list):
+		raise ValueError('pictures must be a list')
+
+	out = []
+	for item in pictures_raw:
+		if isinstance(item, str):
+			url_str = normalize_url(item)
+			if url_str:
+				out.append({'url': url_str})
+			continue
+		if isinstance(item, dict):
+			url_str = normalize_url(str(item.get('url', '') or ''))
+			if url_str:
+				out.append({'url': url_str})
+			continue
+	return out
+
+
+#============================================
+def classify_event(start_date: datetime.date, end_date: datetime.date, today: datetime.date) -> str:
+	"""
+	Classify an event by date.
+
+	Args:
+		start_date (datetime.date): Start date.
+		end_date (datetime.date): End date.
+		today (datetime.date): Today's date.
+
+	Returns:
+		str: One of 'past', 'current', 'upcoming'.
+	"""
+	if end_date < today:
+		return 'past'
+	if start_date <= today <= end_date:
+		return 'current'
+	return 'upcoming'
+
+
+#============================================
+def normalize_schema2(raw: dict) -> tuple:
+	"""
+	Normalize schema: 2 show data.
 
 	Args:
 		raw (dict): Raw YAML dict.
 
 	Returns:
-		dict: Normalized shows_by_year where keys are int and values are list of rows.
+		tuple: (venues, events)
 	"""
 	if raw is None:
 		raise ValueError('YAML file is empty')
-	if 'shows_by_year' not in raw:
-		raise ValueError('Missing required key: shows_by_year')
+	if int(raw.get('schema', 0) or 0) != 2:
+		raise ValueError('Expected schema: 2')
 
-	shows_by_year_raw = raw['shows_by_year']
-	if not isinstance(shows_by_year_raw, dict):
-		raise ValueError('shows_by_year must be a dict')
+	venues_raw = raw.get('venues', {})
+	if not isinstance(venues_raw, dict):
+		raise ValueError('venues must be a dict')
 
-	shows_by_year: dict = {}
-	for year_key in shows_by_year_raw:
-		year_int = int(year_key)
-		rows_raw = shows_by_year_raw[year_key]
-		if rows_raw is None:
-			rows_raw = []
-		if not isinstance(rows_raw, list):
-			raise ValueError(f'shows_by_year[{year_key}] must be a list')
+	venues = {}
+	for venue_id, venue in venues_raw.items():
+		if not isinstance(venue_id, str) or not venue_id:
+			continue
+		if not isinstance(venue, dict):
+			continue
+		venues[venue_id] = {
+			'name': str(venue.get('name', '')).strip(),
+			'address': str(venue.get('address', '')).strip(),
+			'city': str(venue.get('city', '')).strip(),
+			'state': str(venue.get('state', '')).strip(),
+			'postal_code': str(venue.get('postal_code', '')).strip(),
+			'website': str(venue.get('website', '')).strip(),
+		}
 
-		rows = []
-		for row in rows_raw:
-			if not isinstance(row, dict):
-				raise ValueError(f'Each row in shows_by_year[{year_key}] must be a dict')
+	events_raw = raw.get('events', [])
+	if not isinstance(events_raw, list):
+		raise ValueError('events must be a list')
 
-			date_str = str(row.get('date', '')).strip()
-			show_str = str(row.get('show', '')).strip()
-			pictures_raw = row.get('pictures', [])
-			if pictures_raw is None:
-				pictures_raw = []
-			if not isinstance(pictures_raw, list):
-				raise ValueError(f'Row pictures must be a list (year {year_key}, show {show_str})')
+	events = []
+	for event in events_raw:
+		if not isinstance(event, dict):
+			continue
 
-			pictures = []
-			for pic in pictures_raw:
-				if not isinstance(pic, dict):
-					continue
-				text_str = str(pic.get('text', 'Link')).strip() or 'Link'
-				url_str = str(pic.get('url', '')).strip()
-				if not url_str:
-					continue
-				url_str = normalize_url(url_str)
-				pictures.append({'text': text_str, 'url': url_str})
+		event_id = str(event.get('id', '')).strip()
+		venue_id = str(event.get('venue', '')).strip()
+		status = str(event.get('status', '')).strip()
+		start_date = parse_iso_date(event.get('start_date', ''))
+		end_date = parse_iso_date(event.get('end_date', ''))
 
-			rows.append({'date': date_str, 'show': show_str, 'pictures': pictures})
+		if end_date < start_date:
+			raise ValueError(f'Event end_date before start_date: {event_id}')
+		if status != 'confirmed':
+			continue
+		if not event_id:
+			continue
+		if venue_id not in venues:
+			raise ValueError(f'Event references unknown venue: {event_id} -> {venue_id}')
 
-		shows_by_year[year_int] = rows
+		pictures = normalize_pictures(event.get('pictures'))
 
-	return shows_by_year
+		events.append({
+			'id': event_id,
+			'venue': venue_id,
+			'start_date': start_date,
+			'end_date': end_date,
+			'status': status,
+			'pictures': pictures,
+		})
+
+	return (venues, events)
 
 
 #============================================
@@ -156,36 +240,68 @@ def decade_start_for_year(year: int) -> int:
 
 
 #============================================
-def group_years_by_decade(shows_by_year: dict) -> dict:
+def ordinal_suffix(day: int) -> str:
 	"""
-	Group years into decades.
+	Get English ordinal suffix for a day number.
 
 	Args:
-		shows_by_year (dict): Mapping of year to list of rows.
+		day (int): Day number.
 
 	Returns:
-		dict: Mapping of decade start year to list of years.
+		str: Suffix (st/nd/rd/th).
 	"""
-	decades: dict = {}
-	for year in shows_by_year:
-		decade_start = decade_start_for_year(year)
-		if decade_start not in decades:
-			decades[decade_start] = []
-		decades[decade_start].append(year)
+	if 11 <= (day % 100) <= 13:
+		return 'th'
+	last = day % 10
+	if last == 1:
+		return 'st'
+	if last == 2:
+		return 'nd'
+	if last == 3:
+		return 'rd'
+	return 'th'
 
-	for decade_start in decades:
-		decades[decade_start] = sorted(decades[decade_start], reverse=True)
 
-	return decades
+#============================================
+def format_date_range(start_date: datetime.date, end_date: datetime.date) -> str:
+	"""
+	Format a date range like the legacy Past Shows pages.
+
+	Examples:
+	- November 8th – 9th
+	- September 30th – October 1st
+
+	Args:
+		start_date (datetime.date): Start date.
+		end_date (datetime.date): End date.
+
+	Returns:
+		str: Formatted date range (no year).
+	"""
+	month_start = start_date.strftime('%B')
+	month_end = end_date.strftime('%B')
+	start_day = start_date.day
+	end_day = end_date.day
+
+	start_part = f'{month_start} {start_day}{ordinal_suffix(start_day)}'
+	if start_date == end_date:
+		return start_part
+
+	if month_start == month_end:
+		end_part = f'{end_day}{ordinal_suffix(end_day)}'
+	else:
+		end_part = f'{month_end} {end_day}{ordinal_suffix(end_day)}'
+
+	return start_part + ' – ' + end_part
 
 
 #============================================
 def pictures_cell_markdown(pictures: list) -> str:
 	"""
-	Render pictures cell markdown from a list of pictures.
+	Render pictures cell markdown from a list of {url: ...} dicts.
 
 	Args:
-		pictures (list): List of dicts with keys 'text' and 'url'.
+		pictures (list): List of dicts with key 'url'.
 
 	Returns:
 		str: Markdown for the pictures cell.
@@ -195,14 +311,14 @@ def pictures_cell_markdown(pictures: list) -> str:
 
 	parts = []
 	for pic in pictures:
-		text_str = str(pic.get('text', 'Link')).strip() or 'Link'
-		url_str = str(pic.get('url', '')).strip()
+		if not isinstance(pic, dict):
+			continue
+		url_str = normalize_url(str(pic.get('url', '') or ''))
 		if not url_str:
 			continue
-		parts.append(f'[{text_str}]({url_str})')
+		parts.append(f'[Link]({url_str})')
 
-	cell = ' '.join(parts)
-	return cell
+	return ' '.join(parts)
 
 
 #============================================
@@ -266,7 +382,7 @@ def ensure_dir(path: str):
 #============================================
 def write_text_file(path: str, content: str, dry_run: bool):
 	"""
-	Write a text file to disk.
+	Write a text file to disk (only if content changed).
 
 	Args:
 		path (str): File path.
@@ -330,29 +446,75 @@ def decade_page_front_matter(decade_start: int) -> str:
 
 
 #============================================
-def generate_past_shows_pages(input_yaml: str, docs_dir: str, current_year: int, dry_run: bool):
+def build_rows_for_year(past_events: list, venues: dict, year: int) -> list:
+	"""
+	Build table rows for a year from past events.
+
+	Args:
+		past_events (list): List of event dicts.
+		venues (dict): Venues dict keyed by id.
+		year (int): Year.
+
+	Returns:
+		list: Rows suitable for render_year_table.
+	"""
+	events = [e for e in past_events if e['start_date'].year == year]
+	events = sorted(events, key=lambda e: e['start_date'], reverse=True)
+
+	rows = []
+	for event in events:
+		venue = venues.get(event['venue'], {})
+		show_name = str(venue.get('name', '')).strip()
+		rows.append({
+			'date': format_date_range(event['start_date'], event['end_date']),
+			'show': show_name,
+			'pictures': event.get('pictures', []),
+		})
+	return rows
+
+
+#============================================
+def generate_past_shows_pages(input_yaml: str, docs_dir: str, current_year: int, dry_run: bool, today=None):
 	"""
 	Generate Past Shows pages into mkdocs/docs/past-shows/.
 
 	Args:
-		input_yaml (str): Input YAML data file path.
+		input_yaml (str): Input YAML data file path (schema 2).
 		docs_dir (str): MkDocs docs directory.
 		current_year (int): Current year to show on the overview page.
 		dry_run (bool): If True, do not write files.
+		today: Optional override for today's date (datetime.date).
 	"""
+	if today is None:
+		today = datetime.date.today()
+
 	raw = read_yaml_file(input_yaml)
-	shows_by_year = normalize_shows_by_year(raw)
+	venues, events = normalize_schema2(raw)
 
-	decades = group_years_by_decade(shows_by_year)
+	past_events = []
+	for event in events:
+		if classify_event(event['start_date'], event['end_date'], today) == 'past':
+			past_events.append(event)
+
+	years = sorted({e['start_date'].year for e in past_events}, reverse=True)
+	decades: dict = {}
+	for year in years:
+		decade_start = decade_start_for_year(year)
+		if decade_start not in decades:
+			decades[decade_start] = []
+		decades[decade_start].append(year)
+	for decade_start in decades:
+		decades[decade_start] = sorted(decades[decade_start], reverse=True)
+
 	decade_starts = sorted(decades.keys(), reverse=True)
-
 	past_shows_dir = os.path.join(docs_dir, 'past-shows')
 
 	# Overview page: current year + decade links
 	overview_md = overview_front_matter()
-	overview_md += '<!-- Generated from data/past_shows.yml. Edit that file instead. -->\n\n'
+	overview_md += '<!-- Generated from data/shows.yml. Edit that file instead. -->\n\n'
 
-	overview_md += render_year_section(current_year, shows_by_year.get(current_year, []))
+	current_year_rows = build_rows_for_year(past_events, venues, current_year)
+	overview_md += render_year_section(current_year, current_year_rows)
 	overview_md += '\n'
 	overview_md += '## Browse by decade\n\n'
 	for decade_start in decade_starts:
@@ -369,10 +531,11 @@ def generate_past_shows_pages(input_yaml: str, docs_dir: str, current_year: int,
 		decade_path = os.path.join(decade_dir, 'index.md')
 
 		decade_md = decade_page_front_matter(decade_start)
-		decade_md += '<!-- Generated from data/past_shows.yml. Edit that file instead. -->\n\n'
+		decade_md += '<!-- Generated from data/shows.yml. Edit that file instead. -->\n\n'
 
 		for year in decades[decade_start]:
-			decade_md += render_year_section(year, shows_by_year.get(year, []))
+			year_rows = build_rows_for_year(past_events, venues, year)
+			decade_md += render_year_section(year, year_rows)
 			decade_md += '\n'
 
 		write_text_file(decade_path, decade_md, dry_run)
@@ -397,4 +560,11 @@ def main():
 
 
 if __name__ == '__main__':
+	# Simple asserts for new pure functions
+	assert ordinal_suffix(1) == 'st'
+	assert ordinal_suffix(2) == 'nd'
+	assert ordinal_suffix(3) == 'rd'
+	assert ordinal_suffix(4) == 'th'
+	assert classify_event(datetime.date(2025, 1, 1), datetime.date(2025, 1, 2), datetime.date(2025, 1, 3)) == 'past'
+
 	main()

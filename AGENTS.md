@@ -13,7 +13,7 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 - `mkdocs/docs/stylesheets/niltc.css`: All styling overrides live here.
 - `mkdocs/docs/assets/`: Banner/favicon/social icons, etc.
 - `mkdocs/hooks.py`: MkDocs build hook (generates pages from YAML).
-- `data/past_shows.yml`: Past shows source data (edit this; pages are generated).
+- `data/shows.yml`: Shows source data (schema 2; edit this; pages are generated).
 - `python_tools/past_shows.py`: Past shows generator.
 - `python_tools/wordpress_to_markdown.py`: WordPress REST API → Markdown export script.
 - `requirements.txt`: Python deps for building on GitHub Actions.
@@ -39,7 +39,7 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 
 ## Generated content
 
-- Past Shows pages are generated at build time from `data/past_shows.yml` via `mkdocs/hooks.py`.
+- Past Shows pages are generated at build time from `data/shows.yml` via `mkdocs/hooks.py`.
 - Do not hand-edit `mkdocs/docs/past-shows/**/index.md`; edit the YAML and run `mkdocs build -f mkdocs.yml`.
 
 ## WordPress export workflow

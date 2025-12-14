@@ -2,7 +2,7 @@
 title: "Past Shows (2020s)"
 ---
 
-<!-- Generated from data/past_shows.yml. Edit that file instead. -->
+<!-- Generated from data/shows.yml. Edit that file instead. -->
 
 ## 2025
 
@@ -54,7 +54,7 @@ title: "Past Shows (2020s)"
 | December 10th – 11th | 20th Annual LEGO Christmas Show – Cantigny |  |
 | October 22nd – 23rd | Elk Grove Village Public Library |  |
 | September 17th – 18th | Cary Area Library |  |
-| June 18th – June 19th | Brickworld |  |
+| June 18th – 19th | Brickworld |  |
 | April 23rd – 24th | Nebraska Brick Days |  |
 | March 5th – 6th | Poplar Creek Public Library |  |
 | February 19th – 20th | Geneva Public Library |  |

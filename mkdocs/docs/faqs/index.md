@@ -12,7 +12,7 @@ Unlike some model railroad clubs, NILTC does not have a permanent display anywhe
 
 **How do I join?**
 
-The Northern Illinois LEGO® Train Club is an adult club of LEGO® enthusiasts. To be considered for membership you need to be:
+NILTC is an adult club of LEGO® enthusiasts. To be considered for membership you need to be:
 
 • 18 years of age, or older  
 • Have reliable transportation  

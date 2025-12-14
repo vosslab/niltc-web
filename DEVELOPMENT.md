@@ -35,9 +35,9 @@ mkdocs build -f mkdocs.yml
 
 ## Past shows (generated)
 
-Past shows live in `data/past_shows.yml`.
+Shows live in `data/shows.yml` (schema 2: `venues` + flat `events` list).
 
-On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates:
+On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates Past Shows pages:
 
 - `mkdocs/docs/past-shows/index.md` (overview; current year)
 - `mkdocs/docs/past-shows/<decade>s/index.md` (decade pages; auto-created from data)

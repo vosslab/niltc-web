@@ -1,0 +1,985 @@
+schema: 2
+venues:
+  tinley_park_public_library:
+    name: Tinley Park Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  oswego_public_library_oswego_campus:
+    name: "Oswego Public Library \u2013 Oswego Campus."
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  barrington_area_library:
+    name: Barrington Area Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  brickworld_chicago:
+    name: "Brickworld \u2013 Chicago"
+    address: Renaissance Schaumburg Convention Center
+    city: Schaumburg
+    state: IL
+    postal_code: "60173"
+    website: https://brickworld.com/chicago
+  joliet_public_library:
+    name: Joliet Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  villa_park_public_library:
+    name: Villa Park Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  nebraska_brick_days:
+    name: Nebraska Brick Days
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  st_charles_public_library:
+    name: St. Charles Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  morton_arboretum:
+    name: Morton Arboretum
+    address: 4100 Illinois Route 53
+    city: Lisle
+    state: IL
+    postal_code: "60532"
+    website: https://mortonarb.org/
+  brickworld_holiday_joy:
+    name: "Brickworld \u2013 Holiday Joy"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  poplar_creek_public_library:
+    name: Poplar Creek Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  geneva_public_library:
+    name: Geneva Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  palatine_public_library:
+    name: Palatine Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  huntley_area_public_library:
+    name: Huntley Area Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  mount_prospect_public_library:
+    name: Mount Prospect Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  nicholas_conservatory_gardens:
+    name: Nicholas Conservatory & Gardens
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  brickworld_holiday_joy_2:
+    name: Brickworld Holiday Joy
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  downers_grove_public_library:
+    name: Downers Grove Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  ahml:
+    name: Arlington Heights Memorial Library
+    address: 500 N. Dunton Ave.
+    city: Arlington Heights
+    state: IL
+    postal_code: "60004"
+    website: https://www.ahml.info/
+  aurora_public_library_santori_branch:
+    name: Aurora Public Library – Santori Branch
+    address: 101 S. River Street
+    city: Aurora
+    state: IL
+    postal_code: "60506"
+    website: https://www.aurorapubliclibrary.org/SantoriLibrary-13452
+  wheaton_public_library:
+    name: Wheaton Public Library
+    address: 225 N. Cross St.
+    city: Wheaton
+    state: IL
+    postal_code: "60187"
+    website: https://www.wheatonlibrary.org/
+  algonquin_public_library:
+    name: Algonquin Public Library
+    address: 2600 Harnish Drive
+    city: Algonquin
+    state: IL
+    postal_code: "60102"
+    website: https://www.aapld.org/
+  fox_river_valley_public_library_dundee:
+    name: "Fox River Valley Public Library \u2013 Dundee"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  bartlett_public_library_district:
+    name: Bartlett Public Library District
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  20th_annual_lego_christmas_show_cantigny:
+    name: "20th Annual LEGO Christmas Show \u2013 Cantigny"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  elk_grove_village_public_library:
+    name: Elk Grove Village Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  cary_area_library:
+    name: Cary Area Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  brickworld:
+    name: Brickworld
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  19th_annual_lego_christmas_show_cantigny:
+    name: "19th Annual LEGO Christmas Show \u2013 Cantigny"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  18th_annual_lego_christmas_show_cantigny:
+    name: "18th Annual LEGO Christmas Show \u2013 Cantigny"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  schaumburg_public_library:
+    name: Schaumburg Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  nebraska_brick_days_council_bluffs_ia:
+    name: "Nebraska Brick Days \u2013 Council Bluffs, IA"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  bloomingdale_public_library:
+    name: Bloomingdale Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  17th_annual_lego_christmas_show_cantigny:
+    name: "17th Annual LEGO Christmas Show \u2013 Cantigny"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  gail_borden_public_library_elgin:
+    name: Gail Borden Public Library (Elgin)
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  oak_lawn_public_library:
+    name: Oak Lawn Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  chicago_choral_artists_fundraiser_show_oak_park_il:
+    name: "Chicago Choral Artists Fundraiser Show \u2013 Oak Park, IL"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  16th_annual_lego_christmas_show_warrenville_il:
+    name: "16th Annual LEGO Christmas Show \u2013 Warrenville, IL"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  ela_area_public_library:
+    name: Ela Area Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  abbey_resort:
+    name: Abbey Resort
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  cantigny:
+    name: Cantigny
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  addison_public_library:
+    name: Addison Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  chicago_choral_artists_fundraiser_river_forest:
+    name: "Chicago Choral Artists Fundraiser \u2013 River Forest"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  geneva_history_center:
+    name: Geneva History Center
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  dupage_county_historical_museum:
+    name: DuPage County Historical Museum
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  southland_model_train_show:
+    name: Southland Model Train Show
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  itasca_community_library:
+    name: Itasca Community Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  crystal_lake_public_library:
+    name: Crystal Lake Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  blackberry_farm:
+    name: Blackberry Farm
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  wizard_world_chicago:
+    name: Wizard World Chicago
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  helen_plum_library_lombard:
+    name: "Helen Plum Library \u2013 Lombard"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  cary_area_public_library:
+    name: Cary Area Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  glen_ellyn_public_library:
+    name: Glen Ellyn Public Library
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  lego_kidsfest_chicago:
+    name: "LEGO\xAE Kidsfest \u2013 Chicago"
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+  st_charles_scarecrow_fest:
+    name: St. Charles Scarecrow Fest
+    address: ''
+    city: ''
+    state: ''
+    postal_code: ''
+events:
+- id: 2026-06-brickworld_chicago
+  venue: brickworld_chicago
+  start_date: '2026-06-20'
+  end_date: '2026-06-21'
+  status: confirmed
+- id: 2026-05-algonquin_public_library
+  venue: algonquin_public_library
+  start_date: '2026-05-02'
+  end_date: '2026-05-03'
+  status: confirmed
+- id: 2026-04-wheaton_public_library
+  venue: wheaton_public_library
+  start_date: '2026-04-11'
+  end_date: '2026-04-12'
+  status: confirmed
+- id: 2026-03-aurora_public_library_santori_branch
+  venue: aurora_public_library_santori_branch
+  start_date: '2026-03-21'
+  end_date: '2026-03-22'
+  status: confirmed
+- id: 2026-01-morton_arboretum
+  venue: morton_arboretum
+  start_date: '2026-01-24'
+  end_date: '2026-01-25'
+  status: confirmed
+- id: 2025-12-ahml
+  venue: ahml
+  start_date: '2025-12-13'
+  end_date: '2025-12-14'
+  status: confirmed
+- id: 2025-11-tinley_park_public_library
+  venue: tinley_park_public_library
+  start_date: '2025-11-08'
+  end_date: '2025-11-09'
+  status: confirmed
+- id: 2025-10-oswego_public_library_oswego_campus
+  venue: oswego_public_library_oswego_campus
+  start_date: '2025-10-25'
+  end_date: '2025-10-26'
+  status: confirmed
+- id: 2025-09-barrington_area_library
+  venue: barrington_area_library
+  start_date: '2025-09-06'
+  end_date: '2025-09-07'
+  status: confirmed
+- id: 2025-06-brickworld_chicago
+  venue: brickworld_chicago
+  start_date: '2025-06-14'
+  end_date: '2025-06-15'
+  status: confirmed
+- id: 2025-05-joliet_public_library
+  venue: joliet_public_library
+  start_date: '2025-05-17'
+  end_date: '2025-05-18'
+  status: confirmed
+- id: 2025-04-villa_park_public_library
+  venue: villa_park_public_library
+  start_date: '2025-04-26'
+  end_date: '2025-04-27'
+  status: confirmed
+- id: 2025-04-nebraska_brick_days
+  venue: nebraska_brick_days
+  start_date: '2025-04-05'
+  end_date: '2025-04-06'
+  status: confirmed
+- id: 2025-03-st_charles_public_library
+  venue: st_charles_public_library
+  start_date: '2025-03-22'
+  end_date: '2025-03-23'
+  status: confirmed
+- id: 2025-01-morton_arboretum
+  venue: morton_arboretum
+  start_date: '2025-01-25'
+  end_date: '2025-01-26'
+  status: confirmed
+- id: 2024-12-brickworld_holiday_joy
+  venue: brickworld_holiday_joy
+  start_date: '2024-12-07'
+  end_date: '2024-12-08'
+  status: confirmed
+- id: 2024-10-poplar_creek_public_library
+  venue: poplar_creek_public_library
+  start_date: '2024-10-05'
+  end_date: '2024-10-06'
+  status: confirmed
+- id: 2024-09-geneva_public_library
+  venue: geneva_public_library
+  start_date: '2024-09-21'
+  end_date: '2024-09-22'
+  status: confirmed
+- id: 2024-06-brickworld_chicago
+  venue: brickworld_chicago
+  start_date: '2024-06-15'
+  end_date: '2024-06-16'
+  status: confirmed
+- id: 2024-05-palatine_public_library
+  venue: palatine_public_library
+  start_date: '2024-05-04'
+  end_date: '2024-05-05'
+  status: confirmed
+- id: 2024-04-huntley_area_public_library
+  venue: huntley_area_public_library
+  start_date: '2024-04-13'
+  end_date: '2024-04-14'
+  status: confirmed
+- id: 2024-03-nebraska_brick_days
+  venue: nebraska_brick_days
+  start_date: '2024-03-23'
+  end_date: '2024-03-24'
+  status: confirmed
+- id: 2024-03-mount_prospect_public_library
+  venue: mount_prospect_public_library
+  start_date: '2024-03-07'
+  end_date: '2024-03-08'
+  status: confirmed
+- id: 2024-02-morton_arboretum
+  venue: morton_arboretum
+  start_date: '2024-02-24'
+  end_date: '2024-02-25'
+  status: confirmed
+- id: 2024-01-nicholas_conservatory_gardens
+  venue: nicholas_conservatory_gardens
+  start_date: '2024-01-27'
+  end_date: '2024-01-28'
+  status: confirmed
+- id: 2023-12-brickworld_holiday_joy_2
+  venue: brickworld_holiday_joy_2
+  start_date: '2023-12-16'
+  end_date: '2023-12-17'
+  status: confirmed
+- id: 2023-09-downers_grove_public_library
+  venue: downers_grove_public_library
+  start_date: '2023-09-30'
+  end_date: '2023-10-01'
+  status: confirmed
+- id: 2023-09-ahml
+  venue: ahml
+  start_date: '2023-09-09'
+  end_date: '2023-09-10'
+  status: confirmed
+- id: 2023-06-brickworld_chicago
+  venue: brickworld_chicago
+  start_date: '2023-06-17'
+  end_date: '2023-06-18'
+  status: confirmed
+- id: 2023-04-nebraska_brick_days
+  venue: nebraska_brick_days
+  start_date: '2023-04-22'
+  end_date: '2023-04-23'
+  status: confirmed
+- id: 2023-04-fox_river_valley_public_library_dundee
+  venue: fox_river_valley_public_library_dundee
+  start_date: '2023-04-01'
+  end_date: '2023-04-02'
+  status: confirmed
+- id: 2023-03-villa_park_public_library
+  venue: villa_park_public_library
+  start_date: '2023-03-11'
+  end_date: '2023-03-12'
+  status: confirmed
+- id: 2023-02-bartlett_public_library_district
+  venue: bartlett_public_library_district
+  start_date: '2023-02-18'
+  end_date: '2023-02-19'
+  status: confirmed
+- id: 2023-01-nicholas_conservatory_gardens
+  venue: nicholas_conservatory_gardens
+  start_date: '2023-01-14'
+  end_date: '2023-01-15'
+  status: confirmed
+- id: 2022-12-20th_annual_lego_christmas_show_cantigny
+  venue: 20th_annual_lego_christmas_show_cantigny
+  start_date: '2022-12-10'
+  end_date: '2022-12-11'
+  status: confirmed
+- id: 2022-10-elk_grove_village_public_library
+  venue: elk_grove_village_public_library
+  start_date: '2022-10-22'
+  end_date: '2022-10-23'
+  status: confirmed
+- id: 2022-09-cary_area_library
+  venue: cary_area_library
+  start_date: '2022-09-17'
+  end_date: '2022-09-18'
+  status: confirmed
+- id: 2022-06-brickworld
+  venue: brickworld
+  start_date: '2022-06-18'
+  end_date: '2022-06-19'
+  status: confirmed
+- id: 2022-04-nebraska_brick_days
+  venue: nebraska_brick_days
+  start_date: '2022-04-23'
+  end_date: '2022-04-24'
+  status: confirmed
+- id: 2022-03-poplar_creek_public_library
+  venue: poplar_creek_public_library
+  start_date: '2022-03-05'
+  end_date: '2022-03-06'
+  status: confirmed
+- id: 2022-02-geneva_public_library
+  venue: geneva_public_library
+  start_date: '2022-02-19'
+  end_date: '2022-02-20'
+  status: confirmed
+- id: 2021-12-19th_annual_lego_christmas_show_cantigny
+  venue: 19th_annual_lego_christmas_show_cantigny
+  start_date: '2021-12-04'
+  end_date: '2021-12-05'
+  status: confirmed
+- id: 2021-10-tinley_park_public_library
+  venue: tinley_park_public_library
+  start_date: '2021-10-09'
+  end_date: '2021-10-10'
+  status: confirmed
+- id: 2021-07-nebraska_brick_days
+  venue: nebraska_brick_days
+  start_date: '2021-07-24'
+  end_date: '2021-07-25'
+  status: confirmed
+- id: 2020-02-ahml
+  venue: ahml
+  start_date: '2020-02-15'
+  end_date: '2020-02-16'
+  status: confirmed
+- id: 2019-12-18th_annual_lego_christmas_show_cantigny
+  venue: 18th_annual_lego_christmas_show_cantigny
+  start_date: '2019-12-14'
+  end_date: '2019-12-15'
+  status: confirmed
+- id: 2019-09-schaumburg_public_library
+  venue: schaumburg_public_library
+  start_date: '2019-09-21'
+  end_date: '2019-09-22'
+  status: confirmed
+- id: 2019-06-brickworld
+  venue: brickworld
+  start_date: '2019-06-15'
+  end_date: '2019-06-16'
+  status: confirmed
+- id: 2019-04-mount_prospect_public_library
+  venue: mount_prospect_public_library
+  start_date: '2019-04-13'
+  end_date: '2019-04-14'
+  status: confirmed
+- id: 2019-03-nebraska_brick_days_council_bluffs_ia
+  venue: nebraska_brick_days_council_bluffs_ia
+  start_date: '2019-03-30'
+  end_date: '2019-03-31'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/nebraska-brick-days-2019
+- id: 2019-02-bloomingdale_public_library
+  venue: bloomingdale_public_library
+  start_date: '2019-02-23'
+  end_date: '2019-02-24'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2248764421855052&type=1&l=b18c68e7b7
+- id: 2018-12-17th_annual_lego_christmas_show_cantigny
+  venue: 17th_annual_lego_christmas_show_cantigny
+  start_date: '2018-12-08'
+  end_date: '2018-12-09'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2131325796932249&type=1&l=960cd3ab7a
+- id: 2018-11-gail_borden_public_library_elgin
+  venue: gail_borden_public_library_elgin
+  start_date: '2018-11-03'
+  end_date: '2018-11-04'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2081250191939810&type=1&l=6ab833172d
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-elgin-2018
+- id: 2018-10-tinley_park_public_library
+  venue: tinley_park_public_library
+  start_date: '2018-10-13'
+  end_date: '2018-10-14'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2049172021814294&type=1&l=b88aa69884
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-tingly-park-2018
+- id: 2018-06-brickworld
+  venue: brickworld
+  start_date: '2018-06-16'
+  end_date: '2018-06-17'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2049215021809994&type=1&l=377e952776
+- id: 2018-04-oak_lawn_public_library
+  venue: oak_lawn_public_library
+  start_date: '2018-04-07'
+  end_date: '2018-04-08'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2049208635143966&type=1&l=04fd870669
+- id: 2018-03-palatine_public_library
+  venue: palatine_public_library
+  start_date: '2018-03-24'
+  end_date: '2018-03-25'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.2049201865144643&type=1&l=3091eeebef
+- id: 2018-03-nebraska_brick_days_council_bluffs_ia
+  venue: nebraska_brick_days_council_bluffs_ia
+  start_date: '2018-03-10'
+  end_date: '2018-03-11'
+  status: confirmed
+- id: 2018-02-chicago_choral_artists_fundraiser_show_oak_park_il
+  venue: chicago_choral_artists_fundraiser_show_oak_park_il
+  start_date: '2018-02-17'
+  end_date: '2018-02-18'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.1762340673830765&type=1&l=6bd2bb6bd3
+- id: 2017-12-16th_annual_lego_christmas_show_warrenville_il
+  venue: 16th_annual_lego_christmas_show_warrenville_il
+  start_date: '2017-12-09'
+  end_date: '2017-12-10'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.1675567022508131&type=1&l=7e404cd1f0
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-christmas-2017
+- id: 2017-10-elk_grove_village_public_library
+  venue: elk_grove_village_public_library
+  start_date: '2017-10-07'
+  end_date: '2017-10-08'
+  status: confirmed
+- id: 2017-06-brickworld
+  venue: brickworld
+  start_date: '2017-06-17'
+  end_date: '2017-06-18'
+  status: confirmed
+- id: 2017-04-ela_area_public_library
+  venue: ela_area_public_library
+  start_date: '2017-04-22'
+  end_date: '2017-04-23'
+  status: confirmed
+- id: 2017-03-geneva_public_library
+  venue: geneva_public_library
+  start_date: '2017-03-11'
+  end_date: '2017-03-12'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-geneva-library-2017
+- id: 2017-02-ahml
+  venue: ahml
+  start_date: '2017-02-11'
+  end_date: '2017-02-12'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-arlington-heights-library-2017
+- id: 2017-02-abbey_resort
+  venue: abbey_resort
+  start_date: '2017-02-04'
+  end_date: '2017-02-05'
+  status: confirmed
+- id: 2016-12-cantigny
+  venue: cantigny
+  start_date: '2016-12-10'
+  end_date: '2016-12-11'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-cantigny-2016
+- id: 2016-10-addison_public_library
+  venue: addison_public_library
+  start_date: '2016-10-08'
+  end_date: '2016-10-09'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-addison-2016
+- id: 2016-06-brickworld
+  venue: brickworld
+  start_date: '2016-06-18'
+  end_date: '2016-06-19'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/photo.php?fbid=10153908601338292&set=a.10153908601113292.1073742017.626358291&type=3
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/brickworld-chicago/brickworld-chicago-2016
+- id: 2016-05-chicago_choral_artists_fundraiser_river_forest
+  venue: chicago_choral_artists_fundraiser_river_forest
+  start_date: '2016-05-14'
+  end_date: '2016-05-15'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.10153831285978292.1073742015.626358291&type=3
+- id: 2016-04-oak_lawn_public_library
+  venue: oak_lawn_public_library
+  start_date: '2016-04-09'
+  end_date: '2016-04-10'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.10153753162323292.1073742013.626358291&type=3
+- id: 2016-03-geneva_history_center
+  venue: geneva_history_center
+  start_date: '2016-03-05'
+  end_date: '2016-03-06'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.10153650371833292.1073742010.626358291&type=3
+- id: 2016-02-dupage_county_historical_museum
+  venue: dupage_county_historical_museum
+  start_date: '2016-02-20'
+  end_date: '2016-02-21'
+  status: confirmed
+  pictures:
+  - url: https://www.facebook.com/media/set/?set=a.10153619284983292.1073742009.626358291&type=3
+- id: 2016-02-abbey_resort
+  venue: abbey_resort
+  start_date: '2016-02-13'
+  end_date: '2016-02-14'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/all-star-lego-show-2016
+- id: 2015-12-cantigny
+  venue: cantigny
+  start_date: '2015-12-12'
+  end_date: '2015-12-13'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-cantigny-2015
+  - url: https://www.facebook.com/media/set/?set=a.10153488743158292.1073742005.626358291&type=3
+- id: 2015-10-southland_model_train_show
+  venue: southland_model_train_show
+  start_date: '2015-10-10'
+  end_date: '2015-10-11'
+  status: confirmed
+- id: 2015-09-itasca_community_library
+  venue: itasca_community_library
+  start_date: '2015-09-12'
+  end_date: '2015-09-13'
+  status: confirmed
+- id: 2015-06-brickworld
+  venue: brickworld
+  start_date: '2015-06-20'
+  end_date: '2015-06-21'
+  status: confirmed
+- id: 2015-04-ela_area_public_library
+  venue: ela_area_public_library
+  start_date: '2015-04-18'
+  end_date: '2015-04-19'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-lake-zurich-public-library-2015
+- id: 2015-03-geneva_public_library
+  venue: geneva_public_library
+  start_date: '2015-03-07'
+  end_date: '2015-03-08'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-geneva-library-2015
+- id: 2015-02-st_charles_public_library
+  venue: st_charles_public_library
+  start_date: '2015-02-21'
+  end_date: '2015-02-22'
+  status: confirmed
+- id: 2014-12-cantigny
+  venue: cantigny
+  start_date: '2014-12-13'
+  end_date: '2014-12-14'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-cantigny-2014
+- id: 2014-10-crystal_lake_public_library
+  venue: crystal_lake_public_library
+  start_date: '2014-10-11'
+  end_date: '2014-10-12'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-crystal-lake-public-library-2014
+- id: 2014-06-brickworld
+  venue: brickworld
+  start_date: '2014-06-14'
+  end_date: '2014-06-15'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/brickworld-chicago/brickworld-chicago-2014
+- id: 2014-04-blackberry_farm
+  venue: blackberry_farm
+  start_date: '2014-04-26'
+  end_date: '2014-04-27'
+  status: confirmed
+- id: 2014-04-oak_lawn_public_library
+  venue: oak_lawn_public_library
+  start_date: '2014-04-12'
+  end_date: '2014-04-13'
+  status: confirmed
+  pictures:
+  - url: https://www.pirzyk.org/zenphoto/index.php?album=lego/northern-illinois-lego-train-club/niltc-oak-lawn-public-library
+- id: 2014-03-geneva_history_center
+  venue: geneva_history_center
+  start_date: '2014-03-08'
+  end_date: '2014-03-09'
+  status: confirmed
+- id: 2014-02-dupage_county_historical_museum
+  venue: dupage_county_historical_museum
+  start_date: '2014-02-08'
+  end_date: '2014-02-09'
+  status: confirmed
+- id: 2013-12-cantigny
+  venue: cantigny
+  start_date: '2013-12-14'
+  end_date: '2013-12-15'
+  status: confirmed
+- id: 2013-10-addison_public_library
+  venue: addison_public_library
+  start_date: '2013-10-26'
+  end_date: '2013-10-27'
+  status: confirmed
+- id: 2013-09-crystal_lake_public_library
+  venue: crystal_lake_public_library
+  start_date: '2013-09-21'
+  end_date: '2013-09-22'
+  status: confirmed
+- id: 2013-08-wizard_world_chicago
+  venue: wizard_world_chicago
+  start_date: '2013-08-10'
+  end_date: '2013-08-11'
+  status: confirmed
+- id: 2013-06-brickworld
+  venue: brickworld
+  start_date: '2013-06-15'
+  end_date: '2013-06-16'
+  status: confirmed
+- id: 2013-04-helen_plum_library_lombard
+  venue: helen_plum_library_lombard
+  start_date: '2013-04-27'
+  end_date: '2013-04-28'
+  status: confirmed
+- id: 2013-03-geneva_public_library
+  venue: geneva_public_library
+  start_date: '2013-03-16'
+  end_date: '2013-03-17'
+  status: confirmed
+- id: 2013-02-dupage_county_historical_museum
+  venue: dupage_county_historical_museum
+  start_date: '2013-02-16'
+  end_date: '2013-02-17'
+  status: confirmed
+- id: 2013-02-abbey_resort
+  venue: abbey_resort
+  start_date: '2013-02-16'
+  end_date: '2013-02-17'
+  status: confirmed
+- id: 2012-12-cantigny
+  venue: cantigny
+  start_date: '2012-12-08'
+  end_date: '2012-12-09'
+  status: confirmed
+- id: 2012-10-cary_area_public_library
+  venue: cary_area_public_library
+  start_date: '2012-10-20'
+  end_date: '2012-10-21'
+  status: confirmed
+  pictures:
+  - url: http://www.flickr.com/photos/pepa_quin/8187475749/in/photostream
+- id: 2012-09-ahml
+  venue: ahml
+  start_date: '2012-09-15'
+  end_date: '2012-09-16'
+  status: confirmed
+- id: 2012-06-brickworld
+  venue: brickworld
+  start_date: '2012-06-16'
+  end_date: '2012-06-17'
+  status: confirmed
+- id: 2012-03-geneva_history_center
+  venue: geneva_history_center
+  start_date: '2012-03-17'
+  end_date: '2012-03-18'
+  status: confirmed
+- id: 2012-02-oak_lawn_public_library
+  venue: oak_lawn_public_library
+  start_date: '2012-02-18'
+  end_date: '2012-02-19'
+  status: confirmed
+- id: 2011-12-cantigny
+  venue: cantigny
+  start_date: '2011-12-10'
+  end_date: '2011-12-11'
+  status: confirmed
+  pictures:
+  - url: http://www.brickshelf.com/cgi-bin/gallery.cgi?f=491126
+- id: 2011-10-glen_ellyn_public_library
+  venue: glen_ellyn_public_library
+  start_date: '2011-10-15'
+  end_date: '2011-10-16'
+  status: confirmed
+- id: 2011-09-crystal_lake_public_library
+  venue: crystal_lake_public_library
+  start_date: '2011-09-10'
+  end_date: '2011-09-11'
+  status: confirmed
+  pictures:
+  - url: http://www.brickshelf.com/cgi-bin/gallery.cgi?f=483816
+- id: 2011-06-brickworld
+  venue: brickworld
+  start_date: '2011-06-18'
+  end_date: '2011-06-19'
+  status: confirmed
+  pictures:
+  - url: http://www.brickshelf.com/cgi-bin/gallery.cgi?f=476164
+- id: 2011-04-geneva_history_center
+  venue: geneva_history_center
+  start_date: '2011-04-30'
+  end_date: '2011-05-01'
+  status: confirmed
+  pictures:
+  - url: http://www.brickshelf.com/cgi-bin/gallery.cgi?f=471573
+- id: 2011-03-geneva_public_library
+  venue: geneva_public_library
+  start_date: '2011-03-12'
+  end_date: '2011-03-13'
+  status: confirmed
+  pictures:
+  - url: http://www.brickshelf.com/cgi-bin/gallery.cgi?f=467285
+- id: 2011-02-helen_plum_library_lombard
+  venue: helen_plum_library_lombard
+  start_date: '2011-02-26'
+  end_date: '2011-02-27'
+  status: confirmed
+- id: 2010-12-cantigny
+  venue: cantigny
+  start_date: '2010-12-11'
+  end_date: '2010-12-12'
+  status: confirmed
+- id: 2010-10-lego_kidsfest_chicago
+  venue: lego_kidsfest_chicago
+  start_date: '2010-10-29'
+  end_date: '2010-10-31'
+  status: confirmed
+- id: 2010-10-st_charles_scarecrow_fest
+  venue: st_charles_scarecrow_fest
+  start_date: '2010-10-08'
+  end_date: '2010-10-10'
+  status: confirmed
+- id: 2010-09-ahml
+  venue: ahml
+  start_date: '2010-09-11'
+  end_date: '2010-09-12'
+  status: confirmed
+- id: 2010-06-brickworld
+  venue: brickworld
+  start_date: '2010-06-19'
+  end_date: '2010-06-20'
+  status: confirmed

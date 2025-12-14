@@ -2,7 +2,7 @@
 title: "Past Shows (2010s)"
 ---
 
-<!-- Generated from data/past_shows.yml. Edit that file instead. -->
+<!-- Generated from data/shows.yml. Edit that file instead. -->
 
 ## 2019
 

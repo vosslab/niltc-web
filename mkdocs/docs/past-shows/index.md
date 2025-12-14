@@ -6,7 +6,7 @@ wp_link: "https://niltc.org/past-shows"
 date: "2011-01-17T03:19:24"
 ---
 
-<!-- Generated from data/past_shows.yml. Edit that file instead. -->
+<!-- Generated from data/shows.yml. Edit that file instead. -->
 
 ## 2025
 

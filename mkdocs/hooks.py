@@ -17,7 +17,7 @@ def on_pre_build(config, **kwargs):
 
 	import python_tools.past_shows
 
-	input_yaml = os.path.join(repo_root, 'data', 'past_shows.yml')
+	input_yaml = os.path.join(repo_root, 'data', 'shows.yml')
 	current_year = datetime.date.today().year
 
 	python_tools.past_shows.generate_past_shows_pages(

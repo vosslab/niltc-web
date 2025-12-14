@@ -1,8 +1,8 @@
 # NILTC website
 
-This repository contains the source content for the Northern Illinois LEGO Train Club (NILTC) website, built with MkDocs Material.
+This repository contains the source content for the NILTC website, built with MkDocs Material.
 
-NILTC is a LEGO train club (and more) that builds and displays at public shows and events in the Chicagoland area.
+NILTC is a train club (and more) that builds and displays at public shows and events in the Chicagoland area.
 
 ## What’s here
 
@@ -17,7 +17,29 @@ NILTC is a LEGO train club (and more) that builds and displays at public shows a
   - Upcoming shows: `mkdocs/docs/upcoming-shows/index.md`
   - Standards: `mkdocs/docs/standards/index.md`
   - FAQs: `mkdocs/docs/faqs/index.md`
-- **Past Shows** is generated from `data/past_shows.yml` (edit the YAML; don’t hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files).
+- **Shows data** lives in `data/shows.yml` (edit the YAML; don’t hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files).
+
+Example (schema 2):
+
+```yaml
+schema: 2
+
+venues:
+  ahml:
+    name: Arlington Heights Memorial Library
+    address: 500 N. Dunton Ave.
+    city: Arlington Heights
+    state: IL
+    postal_code: "60004"
+    website: "https://www.ahml.info/"
+
+events:
+  - id: 2025-12-ahml
+    venue: ahml
+    start_date: "2025-12-13"
+    end_date: "2025-12-14"
+    status: confirmed
+```
 
 ## Development / publishing
 

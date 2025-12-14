@@ -19,6 +19,9 @@ theme:
 plugins:
   - search
 
+markdown_extensions:
+  - admonition
+
 hooks:
   - mkdocs/hooks.py
 

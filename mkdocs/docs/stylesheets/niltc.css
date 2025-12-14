@@ -12,6 +12,18 @@
   --md-accent-fg-color: var(--niltc-accent);
 }
 
+/* Content links: make them stand out from body text */
+.md-content .md-typeset a {
+  color: var(--niltc-accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(230, 73, 70, 0.45);
+  text-underline-offset: 0.12em;
+}
+
+.md-content .md-typeset a:hover {
+  text-decoration-color: var(--niltc-accent);
+}
+
 /* Black "frame" around the centered content (page gutters) */
 html,
 body,
