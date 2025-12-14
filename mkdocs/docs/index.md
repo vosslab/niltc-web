@@ -11,16 +11,19 @@ date: "2010-06-10T19:40:40"
 NILTC is an adult group of brick-building enthusiasts who build a large collaborative train layout and display at public shows around Northern Illinois and the Chicago area. NILTC is a recognized LEGO User Group.
 
 !!! tip "See NILTC in person"
-    Our next show is at the Arlington Heights Memorial Library.
+    <!-- SHOWS_NEXT:BEGIN -->
+    We are currently at **Arlington Heights Memorial Library**.
 
-    December 13, 2025, 9:00a to 5:00p  
-    December 14, 2025, 12:00p to 5:00p
+    December 13–14, 2025
 
     500 N. Dunton Ave.  
     Arlington Heights, IL 60004
 
+    [Website](https://www.ahml.info/)
+
     More dates: see [Upcoming Shows](upcoming-shows/index.md).  
     Past events: see [Past Shows](past-shows/index.md).
+    <!-- SHOWS_NEXT:END -->
 
 ## Explore
 

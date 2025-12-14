@@ -2,12 +2,11 @@
 
 # Standard Library
 import os
-import html
 import datetime
 import argparse
 
-# PIP3 modules
-import yaml
+# local repo modules
+import python_tools.shows_data
 
 
 #============================================
@@ -59,9 +58,7 @@ def read_yaml_file(yaml_path: str) -> dict:
 	Returns:
 		dict: Parsed YAML content.
 	"""
-	with open(yaml_path, 'r', encoding='utf-8') as f:
-		data = yaml.safe_load(f)
-	return data
+	return python_tools.shows_data.read_yaml_file(yaml_path)
 
 
 #============================================
@@ -75,9 +72,7 @@ def normalize_url(url: str) -> str:
 	Returns:
 		str: Normalized URL.
 	"""
-	url = url.strip()
-	url = html.unescape(url)
-	return url
+	return python_tools.shows_data.normalize_url(url)
 
 
 #============================================
@@ -91,8 +86,7 @@ def parse_iso_date(date_text: str) -> datetime.date:
 	Returns:
 		datetime.date: Parsed date.
 	"""
-	date_text = str(date_text).strip()
-	return datetime.date.fromisoformat(date_text)
+	return python_tools.shows_data.parse_iso_date(date_text)
 
 
 #============================================
@@ -110,25 +104,7 @@ def normalize_pictures(pictures_raw) -> list:
 	Returns:
 		list: List of dicts with key 'url'.
 	"""
-	if not pictures_raw:
-		return []
-
-	if not isinstance(pictures_raw, list):
-		raise ValueError('pictures must be a list')
-
-	out = []
-	for item in pictures_raw:
-		if isinstance(item, str):
-			url_str = normalize_url(item)
-			if url_str:
-				out.append({'url': url_str})
-			continue
-		if isinstance(item, dict):
-			url_str = normalize_url(str(item.get('url', '') or ''))
-			if url_str:
-				out.append({'url': url_str})
-			continue
-	return out
+	return python_tools.shows_data.normalize_pictures(pictures_raw)
 
 
 #============================================
@@ -144,11 +120,7 @@ def classify_event(start_date: datetime.date, end_date: datetime.date, today: da
 	Returns:
 		str: One of 'past', 'current', 'upcoming'.
 	"""
-	if end_date < today:
-		return 'past'
-	if start_date <= today <= end_date:
-		return 'current'
-	return 'upcoming'
+	return python_tools.shows_data.classify_event(start_date, end_date, today)
 
 
 #============================================
@@ -162,66 +134,7 @@ def normalize_schema2(raw: dict) -> tuple:
 	Returns:
 		tuple: (venues, events)
 	"""
-	if raw is None:
-		raise ValueError('YAML file is empty')
-	if int(raw.get('schema', 0) or 0) != 2:
-		raise ValueError('Expected schema: 2')
-
-	venues_raw = raw.get('venues', {})
-	if not isinstance(venues_raw, dict):
-		raise ValueError('venues must be a dict')
-
-	venues = {}
-	for venue_id, venue in venues_raw.items():
-		if not isinstance(venue_id, str) or not venue_id:
-			continue
-		if not isinstance(venue, dict):
-			continue
-		venues[venue_id] = {
-			'name': str(venue.get('name', '')).strip(),
-			'address': str(venue.get('address', '')).strip(),
-			'city': str(venue.get('city', '')).strip(),
-			'state': str(venue.get('state', '')).strip(),
-			'postal_code': str(venue.get('postal_code', '')).strip(),
-			'website': str(venue.get('website', '')).strip(),
-		}
-
-	events_raw = raw.get('events', [])
-	if not isinstance(events_raw, list):
-		raise ValueError('events must be a list')
-
-	events = []
-	for event in events_raw:
-		if not isinstance(event, dict):
-			continue
-
-		event_id = str(event.get('id', '')).strip()
-		venue_id = str(event.get('venue', '')).strip()
-		status = str(event.get('status', '')).strip()
-		start_date = parse_iso_date(event.get('start_date', ''))
-		end_date = parse_iso_date(event.get('end_date', ''))
-
-		if end_date < start_date:
-			raise ValueError(f'Event end_date before start_date: {event_id}')
-		if status != 'confirmed':
-			continue
-		if not event_id:
-			continue
-		if venue_id not in venues:
-			raise ValueError(f'Event references unknown venue: {event_id} -> {venue_id}')
-
-		pictures = normalize_pictures(event.get('pictures'))
-
-		events.append({
-			'id': event_id,
-			'venue': venue_id,
-			'start_date': start_date,
-			'end_date': end_date,
-			'status': status,
-			'pictures': pictures,
-		})
-
-	return (venues, events)
+	return python_tools.shows_data.normalize_schema2(raw)
 
 
 #============================================
@@ -235,8 +148,7 @@ def decade_start_for_year(year: int) -> int:
 	Returns:
 		int: Decade start year (e.g., 2010 for 2017).
 	"""
-	decade_start = (year // 10) * 10
-	return decade_start
+	return python_tools.shows_data.decade_start_for_year(year)
 
 
 #============================================
@@ -250,16 +162,7 @@ def ordinal_suffix(day: int) -> str:
 	Returns:
 		str: Suffix (st/nd/rd/th).
 	"""
-	if 11 <= (day % 100) <= 13:
-		return 'th'
-	last = day % 10
-	if last == 1:
-		return 'st'
-	if last == 2:
-		return 'nd'
-	if last == 3:
-		return 'rd'
-	return 'th'
+	return python_tools.shows_data.ordinal_suffix(day)
 
 
 #============================================
@@ -278,21 +181,7 @@ def format_date_range(start_date: datetime.date, end_date: datetime.date) -> str
 	Returns:
 		str: Formatted date range (no year).
 	"""
-	month_start = start_date.strftime('%B')
-	month_end = end_date.strftime('%B')
-	start_day = start_date.day
-	end_day = end_date.day
-
-	start_part = f'{month_start} {start_day}{ordinal_suffix(start_day)}'
-	if start_date == end_date:
-		return start_part
-
-	if month_start == month_end:
-		end_part = f'{end_day}{ordinal_suffix(end_day)}'
-	else:
-		end_part = f'{month_end} {end_day}{ordinal_suffix(end_day)}'
-
-	return start_part + ' – ' + end_part
+	return python_tools.shows_data.format_date_range_legacy(start_date, end_date)
 
 
 #============================================
@@ -561,10 +450,6 @@ def main():
 
 if __name__ == '__main__':
 	# Simple asserts for new pure functions
-	assert ordinal_suffix(1) == 'st'
-	assert ordinal_suffix(2) == 'nd'
-	assert ordinal_suffix(3) == 'rd'
-	assert ordinal_suffix(4) == 'th'
 	assert classify_event(datetime.date(2025, 1, 1), datetime.date(2025, 1, 2), datetime.date(2025, 1, 3)) == 'past'
 
 	main()
