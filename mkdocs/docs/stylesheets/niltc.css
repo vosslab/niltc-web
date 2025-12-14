@@ -1,0 +1,116 @@
+:root {
+  --niltc-outer-bg: #000;
+  --niltc-bg: #f7f7f7;
+  --niltc-dark: #2a2a2a;
+  --niltc-accent: #e64946;
+  --niltc-shadow: 0 0 10px rgba(50, 50, 50, 0.17);
+}
+
+/* Material theme palette overrides */
+:root {
+  --md-primary-fg-color: var(--niltc-dark);
+  --md-accent-fg-color: var(--niltc-accent);
+}
+
+/* Black "frame" around the centered content (page gutters) */
+html,
+body,
+.md-container,
+.md-main {
+  background: var(--niltc-outer-bg);
+}
+
+/* Layout: match the centered, shadowed "wrapper" feel */
+.md-grid {
+  max-width: 1080px;
+}
+
+.md-header {
+  background: var(--niltc-outer-bg);
+  color: #000;
+  box-shadow: none;
+  border-bottom: 0;
+  padding: 1rem 0;
+}
+
+/* Banner in the header */
+.md-header__button.md-logo img {
+  height: 160px;
+  width: auto;
+}
+
+/* Let the banner carry the header; keep the site name available on mobile */
+.md-header__title {
+  display: none;
+}
+
+.md-header__inner {
+  background: #fff;
+  box-shadow: var(--niltc-shadow);
+  align-items: center;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-header__button.md-logo img {
+    height: 80px;
+  }
+
+  .md-header__title {
+    display: block;
+  }
+}
+
+/* Red rule under top-level section headers (NILTC / Shows / Standards) */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
+  border-bottom: 2px solid var(--niltc-accent);
+  margin: 0.25rem 0.8rem 0.4rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link .md-ellipsis {
+  color: var(--niltc-dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.md-main {
+  background: var(--niltc-outer-bg);
+}
+
+/* Active item accent (works with default/light sidebar) */
+.md-nav--primary .md-nav__item--active > .md-nav__link {
+  border-left: 3px solid var(--niltc-accent);
+  padding-left: calc(var(--md-nav-indent, 1.2rem) - 3px);
+}
+
+.md-main__inner.md-grid {
+  background: #fff;
+  box-shadow: var(--niltc-shadow);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 60em) {
+  .md-main__inner.md-grid {
+    border-radius: 2px;
+  }
+}
+
+.md-content {
+  padding: 1.25rem;
+}
+
+.md-footer,
+.md-footer-meta {
+  background: var(--niltc-dark);
+}
+
+.md-footer-meta__inner {
+  border-top: 3px solid #999;
+}
