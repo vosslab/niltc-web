@@ -6,14 +6,18 @@ This repository hosts a MkDocs Material site for NILTC, with content exported fr
 
 Primary UI goal: match the legacy NILTC WordPress look (centered white content with shadow, **black outer gutters**, large banner header).
 
-## Key files (expected)
+## Key files
 
 - `mkdocs.yml`: MkDocs configuration (theme + nav).
 - `mkdocs/docs/`: Markdown content and images.
 - `mkdocs/docs/stylesheets/niltc.css`: All styling overrides live here.
 - `mkdocs/docs/assets/`: Banner/favicon/social icons, etc.
+- `mkdocs/hooks.py`: MkDocs build hook (generates pages from YAML).
+- `data/past_shows.yml`: Past shows source data (edit this; pages are generated).
+- `python_tools/past_shows.py`: Past shows generator.
 - `python_tools/wordpress_to_markdown.py`: WordPress REST API → Markdown export script.
-- `niltc-mirror-old/`: HTTrack mirror (reference only).
+- `requirements.txt`: Python deps for building on GitHub Actions.
+- `.github/workflows/pages.yml`: GitHub Pages build/deploy workflow.
 
 ## Content exclusions
 
@@ -33,6 +37,11 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 - The sidebar menu should remain the default/light style (don’t force it black unless requested).
 - Any new visual tweaks go into `mkdocs/docs/stylesheets/niltc.css`.
 
+## Generated content
+
+- Past Shows pages are generated at build time from `data/past_shows.yml` via `mkdocs/hooks.py`.
+- Do not hand-edit `mkdocs/docs/past-shows/**/index.md`; edit the YAML and run `mkdocs build -f mkdocs.yml`.
+
 ## WordPress export workflow
 
 - Requires `pandoc` on PATH and Python with `requests`.
@@ -43,6 +52,12 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 
 - Build: `mkdocs build -f mkdocs.yml`
 - Serve: `mkdocs serve -f mkdocs.yml`
+
+## GitHub Pages
+
+- Deployment uses GitHub Actions workflow `.github/workflows/pages.yml`.
+- GitHub repo settings must have Pages → Source set to “GitHub Actions”.
+- If adding MkDocs plugins, update `requirements.txt` so CI can build.
 
 ## Python style
 

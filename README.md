@@ -1,15 +1,57 @@
 # niltc-web
 
-This repo contains:
+MkDocs Material site for Northern Illinois LEGO Train Club (NILTC), with content exported from WordPress.
 
-- `niltc-mirror-old/`: an HTTrack static mirror used to inspect public URL structure.
-- `python_tools/wordpress_to_markdown.py`: a WordPress REST API exporter that converts content to MkDocs-ready Markdown.
-- `mkdocs/docs/`: generated Markdown content and downloaded images.
-- `mkdocs.yml`: MkDocs configuration for serving/building the generated docs.
+## Repo layout
+
+- `mkdocs.yml`: MkDocs config (nav/theme).
+- `mkdocs/docs/`: site content (Markdown + assets).
+- `mkdocs/docs/stylesheets/niltc.css`: all CSS overrides (legacy “black frame” look, sidebar tweaks, etc.).
+- `mkdocs/hooks.py`: MkDocs build hook (generates Past Shows pages from YAML).
+- `data/`: editable data files used to generate pages.
+- `python_tools/`: Python utilities (export + generators).
+- `.github/workflows/pages.yml`: GitHub Pages deployment via Actions.
+
+## Local development
+
+Install site dependencies (MkDocs + theme/plugins):
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Serve locally:
+
+```bash
+mkdocs serve -f mkdocs.yml
+```
+
+Build locally:
+
+```bash
+mkdocs build -f mkdocs.yml
+```
+
+## Past shows (generated)
+
+Past shows live in `data/past_shows.yml`.
+
+On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates:
+
+- `mkdocs/docs/past-shows/index.md` (overview; current year)
+- `mkdocs/docs/past-shows/<decade>s/index.md` (decade pages; auto-created from data)
+
+Manual run:
+
+```bash
+/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/generate_past_shows.py
+```
+
+Do not hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files; edit the YAML instead.
 
 ## WordPress -> MkDocs exporter
 
-`python_tools/wordpress_to_markdown.py`:
+`python_tools/wordpress_to_markdown.py` exports WordPress pages (and optionally posts) via REST API and converts HTML to Markdown using `pandoc`:
 
 - Fetches pages and optionally posts from `wp-json/wp/v2/pages` and `wp-json/wp/v2/posts`, handling pagination.
 - Adds a short randomized sleep before each request to reduce load.
@@ -25,11 +67,9 @@ This repo contains:
   - Optionally rewrites internal WordPress links to relative MkDocs paths using a link map
 - Produces a CSV report listing each exported item and the number of images downloaded.
 
-## Usage
+### Export usage
 
-The exporter requires Python with `requests` installed plus `pandoc` available on your PATH.
-
-On this machine, `python3` is 3.14 and does not have `requests`, but Homebrew Python 3.12 does:
+The exporter requires `pandoc` on your PATH and Python with `requests` installed.
 
 ```bash
 /opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/wordpress_to_markdown.py \
@@ -37,23 +77,10 @@ On this machine, `python3` is 3.14 and does not have `requests`, but Homebrew Py
   -o mkdocs/docs
 ```
 
-Serve locally with MkDocs:
+## GitHub Pages deployment
 
-```bash
-mkdocs serve -f mkdocs.yml
-```
+This repo publishes via GitHub Actions (see `.github/workflows/pages.yml`).
 
-## Past shows data
+In GitHub repo settings:
 
-Past shows live in `data/past_shows.yml`.
-
-On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates:
-
-- `mkdocs/docs/past-shows/index.md` (overview, current year)
-- `mkdocs/docs/past-shows/<decade>s/index.md` (decade pages, auto-created from data)
-
-You can also run it manually:
-
-```bash
-/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/generate_past_shows.py
-```
+- Settings → Pages → Source: GitHub Actions
