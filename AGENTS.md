@@ -15,6 +15,7 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 - `mkdocs/hooks.py`: MkDocs build hook (generates pages from YAML).
 - `data/shows.yml`: Shows source data (schema 2; edit this; pages are generated).
 - `python_tools/past_shows.py`: Past shows generator.
+- `python_tools/generate_shows_pages.py`: Manual generator runner (all shows-related outputs).
 - `python_tools/wordpress_to_markdown.py`: WordPress REST API → Markdown export script.
 - `requirements.txt`: Python deps for building on GitHub Actions.
 - `.github/workflows/pages.yml`: GitHub Pages build/deploy workflow.
@@ -39,8 +40,8 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 
 ## Generated content
 
-- Past Shows pages are generated at build time from `data/shows.yml` via `mkdocs/hooks.py`.
-- Do not hand-edit `mkdocs/docs/past-shows/**/index.md`; edit the YAML and run `mkdocs build -f mkdocs.yml`.
+- Shows pages are generated at build time from `data/shows.yml` via `mkdocs/hooks.py`.
+- Do not hand-edit the generated outputs; edit `data/shows.yml` and run `mkdocs build -f mkdocs.yml`.
 
 ## WordPress export workflow
 

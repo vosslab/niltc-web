@@ -9,7 +9,7 @@ import datetime
 #============================================
 def on_pre_build(config, **kwargs):
 	"""
-	MkDocs hook: generate Past Shows pages from YAML before building.
+	MkDocs hook: generate shows-related pages from YAML before building.
 	"""
 	repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 	if repo_root not in sys.path:

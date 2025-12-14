@@ -14,10 +14,16 @@ NILTC is a train club (and more) that builds and displays at public shows and ev
 - Most pages live in `mkdocs/docs/` as `index.md` files.
 - Common pages to edit:
   - Home: `mkdocs/docs/index.md`
-  - Upcoming shows: `mkdocs/docs/upcoming-shows/index.md`
   - Standards: `mkdocs/docs/standards/index.md`
   - FAQs: `mkdocs/docs/faqs/index.md`
-- **Shows data** lives in `data/shows.yml` (edit the YAML; don’t hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files).
+- **Shows data** lives in `data/shows.yml` (edit the YAML; pages are generated at build time).
+
+Generated from `data/shows.yml` (do not hand-edit these outputs):
+
+- `mkdocs/docs/upcoming-shows/index.md`
+- `mkdocs/docs/past-shows/index.md`
+- `mkdocs/docs/past-shows/<decade>s/index.md`
+- The “See NILTC in person” block inside `mkdocs/docs/index.md` (between `SHOWS_NEXT` markers)
 
 Example (schema 2):
 

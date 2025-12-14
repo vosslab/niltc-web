@@ -7,7 +7,7 @@ This file documents how to build, serve, and publish the NILTC MkDocs site.
 - `mkdocs.yml`: MkDocs config (nav/theme).
 - `mkdocs/docs/`: site content (Markdown + assets).
 - `mkdocs/docs/stylesheets/niltc.css`: all CSS overrides (legacy “black frame” look, sidebar tweaks, etc.).
-- `mkdocs/hooks.py`: MkDocs build hook (generates Past Shows pages from YAML).
+- `mkdocs/hooks.py`: MkDocs build hook (generates shows-related pages from YAML).
 - `data/`: editable data files used to generate pages.
 - `python_tools/`: Python utilities (export + generators).
 - `.github/workflows/pages.yml`: GitHub Pages deployment via Actions.
@@ -33,22 +33,24 @@ Build locally:
 mkdocs build -f mkdocs.yml
 ```
 
-## Past shows (generated)
+## Shows pages (generated)
 
 Shows live in `data/shows.yml` (schema 2: `venues` + flat `events` list).
 
-On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates Past Shows pages:
+On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates:
 
+- `mkdocs/docs/upcoming-shows/index.md`
 - `mkdocs/docs/past-shows/index.md` (overview; current year)
 - `mkdocs/docs/past-shows/<decade>s/index.md` (decade pages; auto-created from data)
+- The “See NILTC in person” block inside `mkdocs/docs/index.md` (between `SHOWS_NEXT` markers)
 
 Manual run:
 
 ```bash
-/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/generate_past_shows.py
+/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/generate_shows_pages.py
 ```
 
-Do not hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files; edit the YAML instead.
+Do not hand-edit the generated outputs; edit `data/shows.yml` instead.
 
 ## WordPress -> MkDocs exporter
 
