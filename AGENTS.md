@@ -12,7 +12,7 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 - `mkdocs/docs/`: Markdown content and images.
 - `mkdocs/docs/stylesheets/niltc.css`: All styling overrides live here.
 - `mkdocs/docs/assets/`: Banner/favicon/social icons, etc.
-- `wordpress-to-markdown.py`: WordPress REST API → Markdown export script.
+- `python_tools/wordpress_to_markdown.py`: WordPress REST API → Markdown export script.
 - `niltc-mirror-old/`: HTTrack mirror (reference only).
 
 ## Content exclusions
@@ -37,7 +37,7 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 
 - Requires `pandoc` on PATH and Python with `requests`.
 - On this machine, use Homebrew Python 3.12:
-  - `/opt/homebrew/opt/python@3.12/bin/python3.12 wordpress-to-markdown.py -b https://niltc.org -o mkdocs/docs`
+  - `/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/wordpress_to_markdown.py -b https://niltc.org -o mkdocs/docs`
 
 ## Local validation
 

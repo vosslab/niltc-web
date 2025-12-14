@@ -3,13 +3,13 @@
 This repo contains:
 
 - `niltc-mirror-old/`: an HTTrack static mirror used to inspect public URL structure.
-- `wordpress-to-markdown.py`: a WordPress REST API exporter that converts content to MkDocs-ready Markdown.
+- `python_tools/wordpress_to_markdown.py`: a WordPress REST API exporter that converts content to MkDocs-ready Markdown.
 - `mkdocs/docs/`: generated Markdown content and downloaded images.
 - `mkdocs.yml`: MkDocs configuration for serving/building the generated docs.
 
 ## WordPress -> MkDocs exporter
 
-`wordpress-to-markdown.py`:
+`python_tools/wordpress_to_markdown.py`:
 
 - Fetches pages and optionally posts from `wp-json/wp/v2/pages` and `wp-json/wp/v2/posts`, handling pagination.
 - Adds a short randomized sleep before each request to reduce load.
@@ -32,7 +32,7 @@ The exporter requires Python with `requests` installed plus `pandoc` available o
 On this machine, `python3` is 3.14 and does not have `requests`, but Homebrew Python 3.12 does:
 
 ```bash
-/opt/homebrew/opt/python@3.12/bin/python3.12 wordpress-to-markdown.py \
+/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/wordpress_to_markdown.py \
   -b https://niltc.org \
   -o mkdocs/docs
 ```
@@ -41,4 +41,19 @@ Serve locally with MkDocs:
 
 ```bash
 mkdocs serve -f mkdocs.yml
+```
+
+## Past shows data
+
+Past shows live in `data/past_shows.yml`.
+
+On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates:
+
+- `mkdocs/docs/past-shows/index.md` (overview, current year)
+- `mkdocs/docs/past-shows/<decade>s/index.md` (decade pages, auto-created from data)
+
+You can also run it manually:
+
+```bash
+/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/generate_past_shows.py
 ```

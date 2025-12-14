@@ -19,6 +19,9 @@ theme:
 plugins:
   - search
 
+hooks:
+  - mkdocs/hooks.py
+
 extra_css:
   - stylesheets/niltc.css
 
@@ -49,7 +52,10 @@ nav:
       - FAQs: faqs/index.md
   - Shows:
       - Upcoming Shows: upcoming-shows/index.md
-      - Past Shows: past-shows/index.md
+      - Past Shows:
+          - Overview: past-shows/index.md
+          - 2020s: past-shows/2020s/index.md
+          - 2010s: past-shows/2010s/index.md
       - Pictures and Videos: pictures-and-videos/index.md
       - Castle: castle/index.md
   - Standards:
