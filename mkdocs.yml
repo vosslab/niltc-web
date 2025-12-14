@@ -30,6 +30,7 @@ extra_css:
 
 extra:
   generator: false
+  news_enrich: false
   social:
     - icon: fontawesome/brands/facebook
       link: https://facebook.com/NILTC

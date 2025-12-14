@@ -1,0 +1,620 @@
+schema: 1
+stories:
+- id: 20090305a
+  source: Chicago Tribune
+  published_date: '2009-03-05'
+  title: It’s a SMALL WORLD after all
+  author: Chicago Tribune
+  teaser: Talk about downsizing. These are heady times for diorama builders, for inventors...
+  urls:
+  - https://www.chicagotribune.com/2009/03/05/its-a-small-world-after-all-3/
+- id: 20100421a
+  source: Daily Herald
+  published_date: '2010-04-21'
+  title: Get creative at history center's Lego event
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20100421/news/304219965/
+- id: 20101209a
+  source: Daily Herald
+  published_date: '2010-12-09'
+  title: Trains roll through land of Legos at Cantigny
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20101209/news/712109928/
+- id: 20110227a
+  source: Daily Herald
+  published_date: '2011-02-27'
+  title: Lego buffs impress crowd at Lombard show
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20110227/news/702279895/
+- id: 20110411a
+  source: Daily Herald
+  published_date: '2011-04-11'
+  title: Lego train show comes to Geneva
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20110427/news/704279941/
+- id: 20111207a
+  source: Daily Herald
+  published_date: '2011-12-07'
+  title: Cantigny hosts annual Lego Train Show
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20111206/news/712069780/
+- id: 20111211a
+  source: Daily Herald
+  published_date: '2011-12-11'
+  title: Record crowd expected for annual Lego Train Show
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20111211/news/712119870/
+- id: 20121206a
+  source: Daily Herald
+  published_date: '2012-12-06'
+  title: Lego train show chugs into Cantigny
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20121206/news/712069818/
+- id: 20121210a
+  source: Daily Herald
+  published_date: '2012-12-10'
+  title: Lego fans flock to Cantigny show
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20121209/news/712099798/
+- id: 20130216a
+  source: Daily Herald
+  published_date: '2013-02-16'
+  title: Exhibit impresses Lego show visitors in Wheaton
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20130216/news/702129535/
+- id: 20131126a
+  source: Chicago Tribune
+  published_date: '2013-11-26'
+  title: LEGO Fans Invited to Cantigny Park for December Events
+  author: null
+  teaser: null
+  urls:
+  - http://www.chicagotribune.com/suburbs/wheaton/community/chi-ugc-article-lego-fans-invited-to-cantigny-park-for-decemb-2013-11-26-story.html
+  - https://www.chicagotribune.com/suburbs/wheaton/community/chi-ugc-article-lego-fans-invited-to-cantigny-park-for-decemb-2013-11-26-story.html
+- id: 20131215a
+  source: Daily Herald
+  published_date: '2013-12-15'
+  title: Lego fans flock to Cantigny for holiday train show
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20131215/news/712159849/
+- id: 20140819a
+  source: Daily Herald
+  published_date: '2014-08-19'
+  title: DuPage museum displays Lego replica
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20140819/submitted/140818375/
+- id: 20140830a
+  source: Chicago Tribune
+  published_date: '2014-08-30'
+  title: Wheaton museum replicated in LEGOs
+  author: Janice Neumann
+  teaser: A new, colorful replica of the DuPage County Historical Museum and grounds...
+  urls:
+  - https://www.chicagotribune.com/2014/08/30/wheaton-museum-replicated-in-legos/
+- id: 20141213a
+  source: Daily Herald
+  published_date: '2014-12-13'
+  title: Lego train show continues Sunday at Cantigny Park
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20141213/news/141219217/
+- id: 20150307a
+  source: Kane County Chronicle
+  published_date: '2015-03-07'
+  title: Lego creations draw crowds at Geneva Public Library
+  author: null
+  teaser: null
+  urls:
+  - http://www.kcchronicle.com/2015/03/07/lego-creations-draw-crowds-at-geneva-public-library/ayg8bdw/
+  - https://www.shawlocal.com/kane-county-chronicle/2015/03/07/lego-creations-draw-crowds-at-geneva-public-library/ayg8bdw/
+- id: 20150307b
+  source: Shaw Local
+  published_date: '2015-03-07'
+  title: Lego creations draw crowds at Geneva Public Library
+  author: ERIC SCHELKOPF
+  teaser: null
+  urls:
+  - https://www.shawlocal.com/2015/03/07/lego-creations-draw-crowds-at-geneva-public-library/ayg8bdw/
+- id: 20150308a
+  source: Daily Herald
+  published_date: '2015-03-08'
+  title: LEGO fans piece together a good time in Geneva
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20150308/news/150308921/
+- id: 20150602a
+  source: Daily Herald
+  published_date: '2015-06-02'
+  title: Meet the Bartlett man who builds Lego replicas of suburban landmarks
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20150601/news/150609855/
+- id: 20151205a
+  source: Chicago Tribune
+  published_date: '2015-12-05'
+  title: LEGO train show chugs into Cantigny
+  author: null
+  teaser: null
+  urls:
+  - http://www.chicagotribune.com/suburbs/naperville-sun/news/ct-nvs-lego-train-show-cantigny-st-1211-20151209-story.html
+  - https://www.chicagotribune.com/suburbs/naperville-sun/news/ct-nvs-lego-train-show-cantigny-st-1211-20151209-story.html
+- id: 20151209a
+  source: Chicago Tribune
+  published_date: '2015-12-09'
+  title: LEGO train show chugs into Cantigny
+  author: Jen Banowetz
+  teaser: Brick by thousands of colorful plastic bricks, the LEGO Train Show at...
+  urls:
+  - https://www.chicagotribune.com/2015/12/09/lego-train-show-chugs-into-cantigny-2/
+- id: 20151210a
+  source: Daily Herald
+  published_date: '2015-12-10'
+  title: Cantigny's Lego display brings out the kid in everyone
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20151210/news/151219987/
+- id: 20151213a
+  source: Daily Herald
+  published_date: '2015-12-13'
+  title: Lego fans flock to Cantigny's annual show
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20151213/news/151219538/
+- id: 20160218a
+  source: Daily Herald
+  published_date: '2016-02-18'
+  title: Lego train display coming to DuPage museum
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20160218/news/160219052/
+- id: 20160331a
+  source: Chicago Tribune
+  published_date: '2016-03-31'
+  title: Lego trains, castles to be displayed at Oak Lawn Library
+  author: Kelly White
+  teaser: Lego displays of trains, castles, skyscrapers, and superheroes at Oak Lawn Public...
+  urls:
+  - http://www.chicagotribune.com/suburbs/daily-southtown/news/ct-sta-lego-train-st-0404-20160331-story.html
+  - https://www.chicagotribune.com/suburbs/daily-southtown/news/ct-sta-lego-train-st-0404-20160331-story.html
+  - https://www.chicagotribune.com/2016/03/31/lego-trains-castles-to-be-displayed-at-oak-lawn-library/
+- id: 20160331b
+  source: Chicago Tribune
+  published_date: '2016-03-31'
+  title: Lego trains, castles to be displayed at Oak Lawn Library
+  author: Kelly White
+  teaser: Lego displays of trains, castles, skyscrapers, and superheroes at Oak Lawn Public...
+  urls:
+  - https://www.chicagotribune.com/2016/03/31/lego-trains-castles-to-be-displayed-at-oak-lawn-library/
+- id: 20160412a
+  source: Chicago Tribune
+  published_date: '2016-04-12'
+  title: Northern Illinois LEGO Train Club Display Coming to River Forest
+  author: null
+  teaser: null
+  urls:
+  - http://www.chicagotribune.com/suburbs/elmhurst/community/chi-ugc-article-northern-illinois-lego-train-club-display-com-2016-05-02-story.html
+  - https://www.chicagotribune.com/suburbs/elmhurst/community/chi-ugc-article-northern-illinois-lego-train-club-display-com-2016-05-02-story.html
+- id: 20161207a
+  source: Daily Herald
+  published_date: '2016-12-07'
+  title: Cantigny's Lego Train Show a surefire holiday hit
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20161205/entlife/161209458/
+- id: 20161210a
+  source: Daily Herald
+  published_date: '2016-12-10'
+  title: Annual Lego Train Club show draws thousands to Cantigny
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20161210/news/161219887/
+- id: 20170211a
+  source: Daily Herald
+  published_date: '2017-02-11'
+  title: Lego train exhibit in Arlington Heights draws thousands
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/article/20170211/news/170219748/
+- id: 20180311a
+  source: Daily Nonpareil
+  published_date: '2018-03-11'
+  title: Brick Days a Lego lover's dream at Mid-America Center
+  author: Mike Brownlee mbrownlee@nonpareilonline.com
+  teaser: Trains, planes and automobiles.
+  urls:
+  - http://www.nonpareilonline.com/news/good_news/brick-days-a-lego-lover-s-dream-at-mid-america/article_da67310a-24ba-11e8-85c4-77982128d0b5.amp.html
+  - https://nonpareilonline.com/news/local/article_da67310a-24ba-11e8-85c4-77982128d0b5.html
+- id: 20180311c
+  source: Daily Nonpareil
+  published_date: '2018-03-11'
+  title: Brick Days a Lego lover’s dream at Mid-America Center
+  author: Mike Brownlee mbrownlee@nonpareilonline.com
+  teaser: Trains, planes and automobiles.
+  urls:
+  - https://www.nonpareilonline.com/news/good_news/brick-days-a-lego-lover-s-dream-at-mid-america/article_da67310a-24ba-11e8-85c4-77982128d0b5.amp.html
+- id: 20180311b
+  source: KETV
+  published_date: '2018-03-11'
+  title: Building creativity with Legos
+  author: Waverle Monroe
+  teaser: Waverle Monroe reports.
+  urls:
+  - http://www.ketv.com/article/building-creativity-with-legos/19399686
+  - https://www.ketv.com/article/building-creativity-with-legos/19399686
+- id: 20180312a
+  source: Omaha World-Herald
+  published_date: '2018-03-12'
+  title: Expo featuring everything Lego - including battleship with half-million bricks - draws thousands
+  author: Alia Conley World-Herald staff writer
+  teaser: Nebraska Brick Days, a two-day expo at the Mid-America Center in Council...
+  urls:
+  - http://www.omaha.com/living/expo-featuring-everything-lego-including-battleship-with-half-million-bricks/article_1a398985-b41c-5482-89f5-e267110c41c7.html
+  - https://omaha.com/life-entertainment/expo-featuring-everything-lego-including-battleship-with-half-million-bricks/article_1a398985-b41c-5482-89f5-e267110c41c7.html
+  - https://omaha.com/lifestyles/article_1a398985-b41c-5482-89f5-e267110c41c7.html
+- id: 20180312b
+  source: Omaha World-Herald
+  published_date: '2018-03-12'
+  title: Expo featuring everything Lego — including battleship with half-million bricks — draws thousands
+  author: Alia Conley World-Herald staff writer
+  teaser: Nebraska Brick Days, a two-day expo at the Mid-America Center in Council...
+  urls:
+  - https://www.omaha.com/living/expo-featuring-everything-lego-including-battleship-with-half-million-bricks/article_1a398985-b41c-5482-89f5-e267110c41c7.html
+- id: 20180325a
+  source: Daily Herald
+  published_date: '2018-03-25'
+  title: Lego enthusiasts thrill to see trains and villages in Palatine
+  author: null
+  teaser: null
+  urls:
+  - https://www.dailyherald.com/news/20180325/lego-enthusiasts-thrill-to-see-trains-and-villages-in-palatine
+- id: 20180409a
+  source: Chicago Tribune
+  published_date: '2018-04-09'
+  title: '''Creative freedom'' on display at massive Lego display in Oak Lawn'
+  author: null
+  teaser: null
+  urls:
+  - http://www.chicagotribune.com/suburbs/daily-southtown/news/ct-sta-oak-lawn-lego-display-st-0410-story.html
+  - https://www.chicagotribune.com/suburbs/daily-southtown/news/ct-sta-oak-lawn-lego-display-st-0410-story.html
+- id: 20180409b
+  source: Chicago Tribune
+  published_date: '2018-04-09'
+  title: ‘Creative freedom’ on display at massive Lego display in Oak Lawn
+  author: Mike Nolan
+  teaser: The basement of the Oak Lawn Public Library was home last weekend...
+  urls:
+  - https://www.chicagotribune.com/2018/04/09/creative-freedom-on-display-at-massive-lego-display-in-oak-lawn/
+- id: 20181128a
+  source: Chicago Tribune
+  published_date: '2018-11-28'
+  title: LEGO train show chugs into Cantigny
+  author: Jen Banowetz
+  teaser: Superheroes, cityscapes, spaceships — there’s a lot more than trains on exhibit...
+  urls:
+  - https://www.chicagotribune.com/2018/11/28/lego-train-show-chugs-into-cantigny/
+- id: 20221129a
+  source: Chicago Tribune
+  published_date: '2022-11-29'
+  title: Lego Train Show returns to Cantigny
+  author: Jeff Banowetz
+  teaser: For many kids, Lego set is a highly coveted present that they...
+  urls:
+  - https://www.chicagotribune.com/2022/11/29/lego-train-show-returns-to-cantigny/
+- id: 20230401a
+  source: Chicago Tribune
+  published_date: '2023-04-01'
+  title: Lego displays creating elaborate scenes traveled by model trains on display at Dundee Library
+  author: Mike Danahey
+  teaser: Dundee Library’s lower level has been taken over this weekend by the...
+  urls:
+  - https://www.chicagotribune.com/2023/04/01/lego-displays-creating-elaborate-scenes-traveled-by-model-trains-on-display-at-dundee-library/
+- id: 20250324a
+  source: Chicago Tribune
+  published_date: '2025-03-24'
+  title: For LEGO fans, show in St. Charles hits the spot
+  author: David Sharos
+  teaser: The event presented by the Northern Illinois LEGO Train Club featured a...
+  urls:
+  - https://www.chicagotribune.com/2025/03/24/for-lego-fans-show-in-st-charles-hits-the-spot/
+pending:
+- url: https://www.chicagotribune.com/suburbs/daily-southtown/news/ct-sta-lego-train-st-0404-20160331-story.html
+  source: Chicago Tribune
+  cache_path: cache/news_head/19168e1d1390.head.html
+  last_checked: '2025-12-14T17:08:47Z'
+  reason: '404'
+- url: https://www.chicagotribune.com/suburbs/daily-southtown/news/ct-sta-oak-lawn-lego-display-st-0410-story.html
+  source: Chicago Tribune
+  cache_path: cache/news_head/a706e9a69e36.head.html
+  last_checked: '2025-12-14T17:08:48Z'
+  reason: '404'
+- url: https://www.chicagotribune.com/suburbs/elmhurst/community/chi-ugc-article-northern-illinois-lego-train-club-display-com-2016-05-02-story.html
+  source: Chicago Tribune
+  cache_path: cache/news_head/2f4120279aff.head.html
+  last_checked: '2025-12-14T17:08:49Z'
+  reason: '404'
+- url: https://www.chicagotribune.com/suburbs/naperville-sun/news/ct-nvs-lego-train-show-cantigny-st-1211-20151209-story.html
+  source: Chicago Tribune
+  cache_path: cache/news_head/5c0f49c85e70.head.html
+  last_checked: '2025-12-14T17:08:51Z'
+  reason: '404'
+- url: https://www.chicagotribune.com/suburbs/wheaton/community/chi-ugc-article-lego-fans-invited-to-cantigny-park-for-decemb-2013-11-26-story.html
+  source: Chicago Tribune
+  cache_path: cache/news_head/598f98193bfa.head.html
+  last_checked: '2025-12-14T17:08:51Z'
+  reason: '404'
+- url: https://www.dailyherald.com/20080105/news/lego-exhibit-urges-participants-to-use-their-imaginations/
+  source: Daily Herald
+  cache_path: cache/news_head/ba8aa43774ea.head.html
+  last_checked: '2025-12-14T17:08:51Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20140308/entertainment/sunday-picks-all-aboard-for-the-lego-train-club-show/
+  source: Daily Herald
+  cache_path: cache/news_head/0d4ef72c7f62.head.html
+  last_checked: '2025-12-14T17:08:52Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20140818/submitted-content/dupage-museum-displays-lego-replica/
+  source: Daily Herald
+  cache_path: cache/news_head/2c62d2dbacca.head.html
+  last_checked: '2025-12-14T17:08:53Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20141213/news/lego-train-show-continues-sunday-at-cantigny-park-2/
+  source: Daily Herald
+  cache_path: cache/news_head/208a893848e6.head.html
+  last_checked: '2025-12-14T17:08:53Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20150308/news/lego-fans-piece-together-a-good-time-in-geneva/
+  source: Daily Herald
+  cache_path: cache/news_head/ebe51671e431.head.html
+  last_checked: '2025-12-14T17:08:53Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20150601/news/meet-the-bartlett-man-who-builds-lego-replicas-of-suburban-landmarks-2/
+  source: Daily Herald
+  cache_path: cache/news_head/02258bc36411.head.html
+  last_checked: '2025-12-14T17:08:55Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20151208/lifestyle/budget-friendly-fun-lego-train-show-takes-over-cantigny/
+  source: Daily Herald
+  cache_path: cache/news_head/2b3ca47ece76.head.html
+  last_checked: '2025-12-14T17:08:56Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20151210/news/cantignys-lego-display-brings-out-the-kid-in-everyone/
+  source: Daily Herald
+  cache_path: cache/news_head/2ab1ef602fc0.head.html
+  last_checked: '2025-12-14T17:08:56Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20151213/entertainment/weekend-picks-marvel-at-massive-lego-creations-at-cantigny/
+  source: Daily Herald
+  cache_path: cache/news_head/69fde175a6f5.head.html
+  last_checked: '2025-12-14T17:08:56Z'
+  reason: blocked:incapsula;body_too_small
+- url: https://www.dailyherald.com/20151213/news/lego-fans-flock-to-cantignys-annual-show/
+  source: Daily Herald
+  cache_path: cache/news_head/46a6e284d774.head.html
+  last_checked: '2025-12-14T17:08:57Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20160218/news/lego-train-display-coming-to-dupage-museum/
+  source: Daily Herald
+  cache_path: cache/news_head/7d27dc06624c.head.html
+  last_checked: '2025-12-14T17:08:58Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20170211/news/lego-train-exhibit-in-arlington-heights-draws-thousands/
+  source: Daily Herald
+  cache_path: cache/news_head/da522145d8b7.head.html
+  last_checked: '2025-12-14T17:08:59Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20180325/news/lego-enthusiasts-thrill-to-see-trains-and-villages-in-palatine/
+  source: Daily Herald
+  cache_path: cache/news_head/6d9be36d69fd.head.html
+  last_checked: '2025-12-14T17:08:59Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20181204/entertainment/5-things-to-do-for-5-or-less-this-week-in-the-suburbs-33/
+  source: Daily Herald
+  cache_path: cache/news_head/ce750076e6aa.head.html
+  last_checked: '2025-12-14T17:09:00Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20181204/submitted-content/lego-train-show-returns-to-cantigny-dec-8-9/
+  source: Daily Herald
+  cache_path: cache/news_head/0f887937180a.head.html
+  last_checked: '2025-12-14T17:09:01Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20181207/lifestyle/lego-train-show-rolls-into-cantigny-park/
+  source: Daily Herald
+  cache_path: cache/news_head/b953f6917ff2.head.html
+  last_checked: '2025-12-14T17:09:01Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20190910/submitted-content/library-invites-all-ages-to-lego-train-show-exhibit/
+  source: Daily Herald
+  cache_path: cache/news_head/24ea3c747f4a.head.html
+  last_checked: '2025-12-14T17:09:02Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20191210/lifestyle/5-events-for-5-or-less-lego-train-show-returns-to-wheatons-cantigny-park/
+  source: Daily Herald
+  cache_path: cache/news_head/034b769abfb3.head.html
+  last_checked: '2025-12-14T17:09:03Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20191212/lifestyle/lego-train-show-rolls-back-into-cantigny-dec-14-15/
+  source: Daily Herald
+  cache_path: cache/news_head/b696b1349537.head.html
+  last_checked: '2025-12-14T17:09:03Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20191214/entertainment/weekend-picks-lego-train-show-chugs-into-cantigny/
+  source: Daily Herald
+  cache_path: cache/news_head/243951131a3a.head.html
+  last_checked: '2025-12-14T17:09:04Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20211119/submitted-content/lego-train-show-returns-dec-4-5-to-cantigny/
+  source: Daily Herald
+  cache_path: cache/news_head/4ee5310e3f54.head.html
+  last_checked: '2025-12-14T17:09:05Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20211205/news/lego-train-show-brings-holiday-cheer-to-cantigny/
+  source: Daily Herald
+  cache_path: cache/news_head/3221fabe3bf0.head.html
+  last_checked: '2025-12-14T17:09:05Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20220222/submitted-content/lego-train-exhibit-coming-to-poplar-creek-library-march-5-6/
+  source: Daily Herald
+  cache_path: cache/news_head/a9b4e0fa39b7.head.html
+  last_checked: '2025-12-14T17:09:06Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20230402/news/lego-train-expos-dazzling-displays-a-hit-with-kids-in-east-dundee/
+  source: Daily Herald
+  cache_path: cache/news_head/8854826e1014.head.html
+  last_checked: '2025-12-14T17:09:06Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20240227/submitted-content/mount-prospect-public-library-unveils-its-colossal-magical-lego-city-march-9/
+  source: Daily Herald
+  cache_path: cache/news_head/099e9fc21f6a.head.html
+  last_checked: '2025-12-14T17:09:07Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20240416/submitted-content/this-year-marks-palatine-library-districts-100th-anniversary-palatine-library-is-ecstatic-to-celeb/
+  source: Daily Herald
+  cache_path: cache/news_head/82df17350504.head.html
+  last_checked: '2025-12-14T17:09:08Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/20240924/submitted-content/lego-train-exhibit-stops-at-poplar-creek-library-oct-5-6/
+  source: Daily Herald
+  cache_path: cache/news_head/6f6b3d5985d6.head.html
+  last_checked: '2025-12-14T17:09:08Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20100421/news/304219965/
+  source: Daily Herald
+  cache_path: cache/news_head/bb4f85a0912f.head.html
+  last_checked: '2025-12-14T17:09:08Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20101209/news/712109928/
+  source: Daily Herald
+  cache_path: cache/news_head/435e8b49fd92.head.html
+  last_checked: '2025-12-14T17:09:09Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20110227/news/702279895/
+  source: Daily Herald
+  cache_path: cache/news_head/0575d31bc9da.head.html
+  last_checked: '2025-12-14T17:09:10Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20110427/news/704279941/
+  source: Daily Herald
+  cache_path: cache/news_head/75bebf68cfac.head.html
+  last_checked: '2025-12-14T17:09:10Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20111206/news/712069780/
+  source: Daily Herald
+  cache_path: cache/news_head/8b99078a52de.head.html
+  last_checked: '2025-12-14T17:09:11Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20111211/news/712119870/
+  source: Daily Herald
+  cache_path: cache/news_head/18a1b4d6c9b5.head.html
+  last_checked: '2025-12-14T17:09:12Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20121206/news/712069818/
+  source: Daily Herald
+  cache_path: cache/news_head/3f8b72ffc5f6.head.html
+  last_checked: '2025-12-14T17:09:12Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20121209/news/712099798/
+  source: Daily Herald
+  cache_path: cache/news_head/ec07930aabdd.head.html
+  last_checked: '2025-12-14T17:09:13Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20130216/news/702129535/
+  source: Daily Herald
+  cache_path: cache/news_head/0acc4bc55717.head.html
+  last_checked: '2025-12-14T17:09:14Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20131215/news/712159849/
+  source: Daily Herald
+  cache_path: cache/news_head/eebdc345cc92.head.html
+  last_checked: '2025-12-14T17:09:15Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20140819/submitted/140818375/
+  source: Daily Herald
+  cache_path: cache/news_head/8c6b7442a941.head.html
+  last_checked: '2025-12-14T17:09:15Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20141213/news/141219217/
+  source: Daily Herald
+  cache_path: cache/news_head/c6c877e27f7c.head.html
+  last_checked: '2025-12-14T17:09:16Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20150308/news/150308921/
+  source: Daily Herald
+  cache_path: cache/news_head/16b28d5ca2f4.head.html
+  last_checked: '2025-12-14T17:09:17Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20150601/news/150609855/
+  source: Daily Herald
+  cache_path: cache/news_head/2e38fef94551.head.html
+  last_checked: '2025-12-14T17:09:17Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20151210/news/151219987/
+  source: Daily Herald
+  cache_path: cache/news_head/9417e04f72f9.head.html
+  last_checked: '2025-12-14T17:09:18Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20151213/news/151219538/
+  source: Daily Herald
+  cache_path: cache/news_head/16c8af60bea3.head.html
+  last_checked: '2025-12-14T17:09:19Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20160218/news/160219052/
+  source: Daily Herald
+  cache_path: cache/news_head/2d8bf8a17e29.head.html
+  last_checked: '2025-12-14T17:09:19Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20161205/entlife/161209458/
+  source: Daily Herald
+  cache_path: cache/news_head/0caa168c011d.head.html
+  last_checked: '2025-12-14T17:09:19Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20161210/news/161219887/
+  source: Daily Herald
+  cache_path: cache/news_head/70e9709fd032.head.html
+  last_checked: '2025-12-14T17:09:19Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/article/20170211/news/170219748/
+  source: Daily Herald
+  cache_path: cache/news_head/5f40811d35fd.head.html
+  last_checked: '2025-12-14T17:09:20Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.dailyherald.com/news/20180325/lego-enthusiasts-thrill-to-see-trains-and-villages-in-palatine
+  source: Daily Herald
+  cache_path: cache/news_head/23d85139b9ce.head.html
+  last_checked: '2025-12-14T17:09:20Z'
+  reason: blocked:incident_id;incapsula;body_too_small
+- url: https://www.kcchronicle.com/2015/03/07/lego-creations-draw-crowds-at-geneva-public-library/ayg8bdw/
+  source: www.shawlocal.com
+  cache_path: cache/news_head/0b96666aa885.head.html
+  last_checked: '2025-12-14T17:09:21Z'
+  reason: '404'

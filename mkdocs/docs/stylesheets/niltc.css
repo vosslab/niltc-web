@@ -206,3 +206,79 @@ body,
 .md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
   font-size: 1em;
 }
+
+/* In the News: scannable "wire service" list */
+.news-list {
+  margin-top: 1rem;
+}
+
+.news-item {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.18);
+}
+
+.md-content .md-typeset .news-title a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.md-content .md-typeset .news-title a:hover {
+  text-decoration: underline;
+}
+
+.news-meta {
+  margin-top: 0;
+  margin-bottom: 0.15rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.news-source {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  line-height: 1.1;
+  margin-right: 0.55rem;
+  color: #1b4f9c;
+  border-left: 3px solid rgba(230, 73, 70, 0.65);
+  padding-left: 0.45rem;
+}
+
+.news-source--tribune {
+  letter-spacing: 0.04em;
+}
+
+.news-source--dailyherald {
+  letter-spacing: 0.02em;
+}
+
+.news-date {
+  opacity: 0.7;
+}
+
+.news-broken {
+  margin-left: 0.55rem;
+  font-weight: 700;
+  color: var(--niltc-accent);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+}
+
+.news-extra {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.news-author {
+  font-style: italic;
+  margin-bottom: 0.15rem;
+}
+
+.news-teaser {
+  display: block;
+}

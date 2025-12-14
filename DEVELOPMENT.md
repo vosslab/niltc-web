@@ -52,6 +52,32 @@ Manual run:
 
 Do not hand-edit the generated outputs; edit `data/shows.yml` instead.
 
+## In the News (generated)
+
+In the News is a single list page generated from a URL CSV:
+
+- Input: `data/in_the_news.csv` (one URL per line; optional `title_override` column)
+- Canonical store: `data/in_the_news.yml` (schema 1)
+- Repair queue: `data/in_the_news_needs_review.csv` (hard fails + non-200 soft fails only)
+- Output page: `mkdocs/docs/in-the-news/index.md`
+
+Manual run:
+
+```bash
+python3 python_tools/news_enrich.py -i data/in_the_news.csv -y data/in_the_news.yml -r data/in_the_news_needs_review.csv
+python3 python_tools/news_render.py -i data/in_the_news.yml -o mkdocs/docs/in-the-news/index.md
+```
+
+MkDocs integration:
+
+- `mkdocs/hooks.py` always runs the renderer.
+- Enrichment (network calls) only runs when `mkdocs.yml` sets `extra.news_enrich: true`.
+
+Notes:
+
+- The pipeline does not download/store images and does not scrape article body text.
+- If an item is a hard failure but a working replacement exists with the same source and title (or same published time), enrichment sets `replaced_by` + `suppress` so the dead duplicate is hidden.
+
 ## WordPress -> MkDocs exporter
 
 `python_tools/wordpress_to_markdown.py` exports WordPress pages (and optionally posts) via REST API and converts HTML to Markdown using `pandoc`:
