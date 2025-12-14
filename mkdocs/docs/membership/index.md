@@ -10,8 +10,8 @@ The Northern Illinois LEGO® Train Club (NILTC) is an adult club of LEGO® enthu
 
 Annual dues are currently:
 
-- \$50 – Individual
-- \$75 – Joint
+- $50 – Individual
+- $75 – Joint
 
 ## Prospective Members
 
