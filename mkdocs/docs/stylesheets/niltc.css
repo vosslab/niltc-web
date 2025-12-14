@@ -213,13 +213,44 @@ body,
 }
 
 .news-item {
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.18);
+  border-bottom: 1px dotted #ddd;
+  padding: 14px 0;
+}
+
+.news-item::before {
+  content: "";
+  top: 18px;
+  display: block;
+  width: 3px;
+  height: 14px;
+  background: #bbb;
+  position: relative;
+}
+
+.news-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.55rem;
+  row-gap: 0.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.news-source {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  line-height: 1.1;
+}
+
+.news-date {
+  font-size: 0.78rem;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .md-content .md-typeset .news-title a {
-  font-weight: 600;
+  font-weight: 650;
   text-decoration: none;
 }
 
@@ -228,57 +259,88 @@ body,
 }
 
 .news-meta {
-  margin-top: 0;
-  margin-bottom: 0.15rem;
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
-.news-source {
-  display: inline-block;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  line-height: 1.1;
-  margin-right: 0.55rem;
-  color: #1b4f9c;
-  border-left: 3px solid rgba(230, 73, 70, 0.65);
-  padding-left: 0.45rem;
-}
-
-.news-source--tribune {
-  letter-spacing: 0.04em;
-}
-
-.news-source--dailyherald {
-  letter-spacing: 0.02em;
-}
-
-.news-date {
-  opacity: 0.7;
-}
-
-.news-broken {
-  margin-left: 0.55rem;
-  font-weight: 700;
-  color: var(--niltc-accent);
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.03em;
-}
-
-.news-extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.45rem;
+  row-gap: 0.15rem;
   margin-top: 0.25rem;
   font-size: 0.78rem;
-  opacity: 0.75;
+  opacity: 0.72;
 }
 
 .news-author {
   font-style: italic;
-  margin-bottom: 0.15rem;
+  font-size: 0.72rem;
+  opacity: 0.9;
 }
 
 .news-teaser {
-  display: block;
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+.news-sep {
+  opacity: 0.55;
+}
+
+/* Per-source styling (renderer emits source-<slug> classes) */
+.source-chicago-tribune .news-source {
+  color: #1b5fa7;
+  font-family: "Old Standard TT", "Georgia", Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.06em;
+}
+
+.source-daily-herald .news-source {
+  color: #1b5fa7;
+  font-family: "Georgia", Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.04em;
+}
+
+.source-omaha-world-herald .news-source {
+  color: #2f5e9e;
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.source-daily-nonpareil .news-source {
+  color: #2f5e9e;
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.source-ketv .news-source {
+  color: #2f5e9e;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.source-shaw-local .news-source {
+  color: #2f5e9e;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.source-chicago-tribune.news-item::before {
+  background: #1b5fa7;
+}
+
+.source-daily-herald.news-item::before {
+  background: #1b5fa7;
+}
+
+.source-omaha-world-herald.news-item::before {
+  background: #2f5e9e;
+}
+
+.source-daily-nonpareil.news-item::before {
+  background: #2f5e9e;
+}
+
+.source-ketv.news-item::before {
+  background: #2f5e9e;
+}
+
+.source-shaw-local.news-item::before {
+  background: #2f5e9e;
 }

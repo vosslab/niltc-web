@@ -87,6 +87,10 @@ Notes:
 - Head cache is local-only and ignored by git: `cache/news_head/` (contains only `<title>`, `<meta>`, `<link>`, and JSON-LD; no body HTML).
 - Full-page snapshots are local-only and ignored by git: `snapshots/news_full/` (save browser “Webpage, Complete” HTML here, any filenames).
 - Renderer only outputs stories that have **both** `published_date` and `title` (blocked items without cached head metadata will not render).
+- Renderer also hides stories whose URLs are known hard-fails (404/410) per `pending:` in `data/in_the_news.yml`.
+- Dedupe is metadata-based: stories merge by `fingerprint` (normalized `published_date + source + title`), not by URL.
+- `stories[].primary_url` is the “best” URL used for rendering; `stories[].urls` keeps alternates.
+- Styling is driven by renderer-emitted `source-<slug>` classes (see `mkdocs/docs/stylesheets/niltc.css`).
 
 ## WordPress -> MkDocs exporter
 

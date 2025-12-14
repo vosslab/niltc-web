@@ -319,8 +319,11 @@ def render_in_the_news_page(data: dict) -> str:
 		str: Markdown content.
 	"""
 	stories = []
+	pending = []
 	if isinstance(data, dict) and isinstance(data.get('stories', None), list):
 		stories = data.get('stories', [])
+		if isinstance(data.get('pending', None), list):
+			pending = data.get('pending', [])
 	elif isinstance(data, dict):
 		# Backward-compatible: older schema wrapped items in a dict.
 		raw_items = data.get('items', [])
@@ -349,6 +352,69 @@ def render_in_the_news_page(data: dict) -> str:
 	elif isinstance(data, list):
 		# Backward-compatible: intermediate list schema.
 		stories = data
+
+	def source_slug_from_text(text: str) -> str:
+		text = str(text or '').strip().lower()
+		text = re.sub(r'[^a-z0-9]+', '-', text)
+		text = text.strip('-')
+		return text or 'unknown'
+
+	def normalize_fingerprint_text(text: str) -> str:
+		text = str(text or '').lower()
+		for ch in ['\u2010', '\u2011', '\u2012', '\u2013', '\u2014', '\u2015', '\u2212']:
+			text = text.replace(ch, '-')
+		text = text.replace('-', ' ')
+		text = re.sub(r'[^a-z0-9 ]+', ' ', text)
+		text = re.sub(r'\s+', ' ', text).strip()
+		return text
+
+	def fallback_fingerprint(story: dict) -> str:
+		published_date = str(story.get('published_date', '') or '').strip()
+		source = str(story.get('source', '') or '').strip()
+		title = str(story.get('title', '') or '').strip()
+		return published_date + '|' + normalize_fingerprint_text(source) + '|' + normalize_fingerprint_text(title)
+
+	def url_key_no_scheme(url: str) -> tuple:
+		"""
+		Key a URL ignoring scheme (so http/https variants match).
+		"""
+		try:
+			u = urllib.parse.urlparse(str(url or ''))
+		except Exception:
+			return ('', '')
+
+		netloc = (u.netloc or '').lower()
+		if ':' in netloc:
+			netloc = netloc.split(':', 1)[0]
+		path = u.path or ''
+		return (netloc, path)
+
+	def pending_is_hard_fail(reason: str) -> bool:
+		reason = str(reason or '').strip().lower()
+		if not reason:
+			return False
+		if reason.startswith('blocked'):
+			return False
+
+		if reason.isdigit():
+			try:
+				code = int(reason)
+			except Exception:
+				code = 0
+			return code in (404, 410)
+
+		return reason in ('404', '410', 'timeout', 'dns', 'connection_error', 'ssl_error')
+
+	hard_fail_keys = set()
+	for p in pending:
+		if not isinstance(p, dict):
+			continue
+		if not pending_is_hard_fail(p.get('reason', '')):
+			continue
+		u = str(p.get('url', '') or '').strip()
+		if not u:
+			continue
+		hard_fail_keys.add(url_key_no_scheme(u))
 
 	def sort_key(story: dict):
 		d = str(story.get('published_date', '') or '').strip()
@@ -387,6 +453,7 @@ def render_in_the_news_page(data: dict) -> str:
 	out += '<div class=\"news-list\">' + '\n'
 	out += '\n'
 
+	seen_fingerprints = set()
 	for story in stories_sorted:
 		if bool(story.get('suppress', False)):
 			continue
@@ -397,16 +464,32 @@ def render_in_the_news_page(data: dict) -> str:
 		author = str(story.get('author', '') or '').strip()
 		teaser = str(story.get('teaser', '') or '').strip()
 
+		fingerprint = str(story.get('fingerprint', '') or '').strip() or fallback_fingerprint(story)
+		if fingerprint in seen_fingerprints:
+			continue
+		seen_fingerprints.add(fingerprint)
+
+		candidates = []
+		primary = str(story.get('primary_url', '') or '').strip()
+		if primary:
+			candidates.append(primary)
+
 		urls = story.get('urls', [])
 		if not isinstance(urls, list):
 			urls = []
-		url_to_use = ''
 		for u in urls:
 			u = str(u or '').strip()
-			if u:
-				url_to_use = u
-				break
+			if u and u not in candidates:
+				candidates.append(u)
+
+		url_to_use = ''
+		for cand in candidates:
+			if url_key_no_scheme(cand) in hard_fail_keys:
+				continue
+			url_to_use = cand
+			break
 		if not url_to_use:
+			# No known-good URL for this story; keep it out of the page.
 			continue
 
 		domain = urllib.parse.urlparse(url_to_use).netloc
@@ -418,7 +501,7 @@ def render_in_the_news_page(data: dict) -> str:
 		if looks_like_html(teaser):
 			teaser = ''
 
-		source_slug = source_shortname(source, domain)
+		source_slug = source_slug_from_text(source) if source else source_slug_from_text(domain)
 
 		title_html = html.escape(title)
 		source_html = html.escape(source)
@@ -427,19 +510,22 @@ def render_in_the_news_page(data: dict) -> str:
 		teaser_html = html.escape(teaser) if teaser else ''
 		url_html = html.escape(url_to_use, quote=True)
 
-		out += f'<div class=\"news-item news-src-{source_slug}\">' + '\n'
-		out += '\t<div class=\"news-meta\">'
-		out += f'<span class=\"news-source news-source--{source_slug}\">{source_html}</span>'
-		out += f'<span class=\"news-date\">{date_html}</span>'
-		out += '</div>' + '\n'
+		out += f'<div class=\"news-item source-{source_slug}\">' + '\n'
+		out += '\t<div class=\"news-top\">' + '\n'
+		out += f'\t\t<span class=\"news-source source-{source_slug}\">{source_html}</span>' + '\n'
+		if date_html:
+			out += f'\t\t<span class=\"news-date\">{date_html}</span>' + '\n'
+		out += '\t</div>' + '\n'
 		out += f'\t<div class=\"news-title\"><a href=\"{url_html}\" target=\"_blank\" rel=\"noopener\">{title_html}</a></div>' + '\n'
 
 		if author_html or teaser_html:
-			out += '\t<div class=\"news-extra\">' + '\n'
+			out += '\t<div class=\"news-meta\">' + '\n'
 			if author_html:
-				out += f'\t\t<div class=\"news-author\">{author_html}</div>' + '\n'
+				out += f'\t\t<span class=\"news-author\">{author_html}</span>' + '\n'
+			if author_html and teaser_html:
+				out += '\t\t<span class=\"news-sep\">&mdash;</span>' + '\n'
 			if teaser_html:
-				out += f'\t\t<div class=\"news-teaser\">{teaser_html}</div>' + '\n'
+				out += f'\t\t<span class=\"news-teaser\">{teaser_html}</span>' + '\n'
 			out += '\t</div>' + '\n'
 
 		out += '</div>' + '\n'

@@ -960,11 +960,13 @@ def order_story_fields(story: dict) -> dict:
 	"""
 	keys = [
 		'id',
+		'fingerprint',
 		'source',
 		'published_date',
 		'title',
 		'author',
 		'teaser',
+		'primary_url',
 		'urls',
 	]
 	out = {}
@@ -1120,13 +1122,71 @@ def allocate_story_id(published_date: str, used_ids: set) -> str:
 
 
 #============================================
-def normalize_dedup_key(source: str, published_date: str, title: str) -> str:
+def normalize_fingerprint_text(text: str) -> str:
 	"""
-	Build a stable dedup key for story grouping.
+	Normalize text for story fingerprinting.
+
+	Rules:
+	- lowercase
+	- replace unicode dashes with "-"
+	- treat dashes as whitespace
+	- remove punctuation (keep alphanumerics + spaces)
+	- collapse whitespace
 	"""
-	text = (normalize_text(source) + '|' + normalize_text(published_date) + '|' + normalize_text(title)).lower()
+	text = normalize_text(text).lower()
+
+	# Normalize unicode dashes to a hyphen, then treat hyphens as word separators.
+	for ch in ['\u2010', '\u2011', '\u2012', '\u2013', '\u2014', '\u2015', '\u2212']:
+		text = text.replace(ch, '-')
+	text = text.replace('-', ' ')
+
+	# Remove punctuation; keep only a-z0-9 and spaces.
+	text = re.sub(r'[^a-z0-9 ]+', ' ', text)
 	text = re.sub(r'\s+', ' ', text).strip()
 	return text
+
+
+#============================================
+def make_story_fingerprint(published_date: str, source: str, title: str) -> str:
+	"""
+	Make a stable fingerprint used to dedupe stories.
+	"""
+	published_date = normalize_text(published_date)
+	return published_date + '|' + normalize_fingerprint_text(source) + '|' + normalize_fingerprint_text(title)
+
+
+#============================================
+def primary_url_score(url: str, head_url: str, final_url: str, input_url: str) -> int:
+	"""
+	Score a URL for story.primary_url selection.
+
+	Priority:
+	1) head-derived canonical/og/twitter/url (https only)
+	2) final_url after redirects
+	3) original input url
+	"""
+	url_n = normalize_url(url)
+	head_n = normalize_url(head_url)
+	final_n = normalize_url(final_url)
+	input_n = normalize_url(input_url)
+
+	if url_n and head_n and url_n == head_n and url_n.startswith('https://'):
+		return 30
+	if url_n and final_n and url_n == final_n:
+		return 20
+	if url_n and input_n and url_n == input_n:
+		return 10
+	if url_n.startswith('https://'):
+		return 15
+	return 5
+
+
+#============================================
+def normalize_dedup_key(source: str, published_date: str, title: str) -> str:
+	"""
+	Backward-compatible alias for older code paths.
+	"""
+	return make_story_fingerprint(published_date, source, title)
 
 
 #============================================
@@ -2430,17 +2490,65 @@ def enrich_news(
 	stories = store.get('stories', []) if isinstance(store.get('stories', None), list) else []
 	pending = store.get('pending', []) if isinstance(store.get('pending', None), list) else []
 
-	stories_by_key = {}
+	stories_by_fingerprint = {}
 	used_ids = set()
-	for s in stories:
+	for s in [x for x in stories if isinstance(x, dict)]:
+		# Compute fingerprint for existing stories (if missing).
+		published_date = str(s.get('published_date', '') or '').strip()
+		title = str(s.get('title', '') or '').strip()
+		source = str(s.get('source', '') or '').strip()
+		fp = str(s.get('fingerprint', '') or '').strip()
+		if (not fp) and published_date and title and source:
+			fp = make_story_fingerprint(published_date, source, title)
+			s['fingerprint'] = fp
+
+		# Ensure primary_url exists for existing stories when possible.
+		if not normalize_url(s.get('primary_url', '') or ''):
+			urls_list = s.get('urls', [])
+			if isinstance(urls_list, list):
+				for u in urls_list:
+					u = normalize_url(u)
+					if u:
+						s['primary_url'] = u
+						break
+
 		if not isinstance(s, dict):
 			continue
 		sid = str(s.get('id', '') or '').strip()
 		if sid:
 			used_ids.add(sid)
-		key = normalize_dedup_key(s.get('source', ''), s.get('published_date', ''), s.get('title', ''))
-		if key and key not in stories_by_key:
-			stories_by_key[key] = s
+
+		# De-duplicate any existing YAML duplicates by fingerprint.
+		fp = str(s.get('fingerprint', '') or '').strip()
+		if not fp:
+			continue
+		existing = stories_by_fingerprint.get(fp)
+		if existing is None:
+			stories_by_fingerprint[fp] = s
+			continue
+
+		# Merge URLs; only fill missing fields to avoid churn.
+		ex_urls = existing.get('urls', [])
+		if not isinstance(ex_urls, list):
+			ex_urls = []
+		s_urls = s.get('urls', [])
+		if not isinstance(s_urls, list):
+			s_urls = []
+		for u in s_urls:
+			u = normalize_url(u)
+			if not u:
+				continue
+			if u not in ex_urls:
+				ex_urls.append(u)
+		existing['urls'] = ex_urls
+
+		for k in ['source', 'published_date', 'title', 'author', 'teaser', 'primary_url']:
+			if (not existing.get(k, None)) and s.get(k, None):
+				existing[k] = s.get(k, None)
+
+		# Prefer keeping an existing id; never overwrite a non-empty id.
+		if (not existing.get('id', None)) and s.get('id', None):
+			existing['id'] = s.get('id', None)
 
 	pending_by_url = {}
 	for p in pending:
@@ -2642,24 +2750,62 @@ def enrich_news(
 				'last_checked': last_checked,
 				'reason': reason,
 			}
+			review_rows.append({
+				'id': '',
+				'url': url,
+				'final_url': str(final_url or ''),
+				'status_code': str(status_code or ''),
+				'checked_at': last_checked,
+				'title_guess': title or '',
+				'notes': reason,
+			})
 			continue
 
-		key = normalize_dedup_key(source, published_date, title)
-		story = stories_by_key.get(key)
+		fingerprint = make_story_fingerprint(published_date, source, title)
+		story = stories_by_fingerprint.get(fingerprint)
+
+		head_best_url = ''
+		try:
+			head_best_url = extract_best_url_from_html_head(head_html, base_url)
+		except Exception:
+			head_best_url = ''
+
+		primary_candidate = ''
+		for cand in [head_best_url, final_url, url]:
+			cand = normalize_url(cand)
+			if not cand:
+				continue
+			if cand == normalize_url(head_best_url) and (not cand.startswith('https://')):
+				continue
+			primary_candidate = cand
+			break
+
 		if story is None:
-			story_id = allocate_story_id(published_date, used_ids)
 			story = {
-				'id': story_id,
+				'id': '',
+				'fingerprint': fingerprint,
 				'source': source,
 				'published_date': published_date,
 				'title': title,
 				'author': author,
 				'teaser': teaser,
-				'urls': [url],
+				'primary_url': primary_candidate or None,
+				'urls': [],
 			}
 			stories.append(story)
-			stories_by_key[key] = story
+			stories_by_fingerprint[fingerprint] = story
+
+			urls_list = []
+			for u in [url, final_url, head_best_url, story.get('primary_url', '')]:
+				u = normalize_url(u)
+				if not u:
+					continue
+				if u not in urls_list:
+					urls_list.append(u)
+			story['urls'] = urls_list
 		else:
+			if str(story.get('fingerprint', '') or '').strip() == '':
+				story['fingerprint'] = fingerprint
 			if str(story.get('source', '') or '').strip() == '':
 				story['source'] = source
 			if str(story.get('published_date', '') or '').strip() == '':
@@ -2672,11 +2818,25 @@ def enrich_news(
 			if (not story.get('teaser', None)) and teaser:
 				story['teaser'] = teaser
 
+			existing_primary = normalize_url(story.get('primary_url', '') or '')
+			if (not existing_primary) and primary_candidate:
+				story['primary_url'] = primary_candidate
+			elif existing_primary and primary_candidate:
+				ex_score = primary_url_score(existing_primary, head_best_url, final_url, url)
+				new_score = primary_url_score(primary_candidate, head_best_url, final_url, url)
+				if new_score > ex_score:
+					story['primary_url'] = primary_candidate
+
 			urls_list = story.get('urls', [])
 			if not isinstance(urls_list, list):
 				urls_list = []
-			if url not in urls_list:
-				urls_list.append(url)
+
+			for u in [url, final_url, head_best_url, story.get('primary_url', '')]:
+				u = normalize_url(u)
+				if not u:
+					continue
+				if u not in urls_list:
+					urls_list.append(u)
 			story['urls'] = urls_list
 
 		# If this URL was pending, clear it now that it's part of a story.
@@ -2694,6 +2854,42 @@ def enrich_news(
 				'title_guess': title,
 				'notes': fetch_note or str(status_code or 0),
 			})
+
+	# Finalize: ensure stories are unique by fingerprint and assign stable ids for new fingerprints.
+	stories_unique = []
+	for fp, s in stories_by_fingerprint.items():
+		if not isinstance(s, dict):
+			continue
+		# Keep fingerprint on every story.
+		if (not str(s.get('fingerprint', '') or '').strip()) and fp:
+			s['fingerprint'] = fp
+		stories_unique.append(s)
+
+	# Assign ids only for new stories (do not reshuffle existing ids).
+	new_by_date = {}
+	for s in stories_unique:
+		sid = str(s.get('id', '') or '').strip()
+		if sid:
+			continue
+		published_date = str(s.get('published_date', '') or '').strip()
+		if not re.match(r'^\d{4}-\d{2}-\d{2}$', published_date):
+			continue
+		new_by_date.setdefault(published_date, []).append(s)
+
+	for published_date in sorted(new_by_date.keys()):
+		new_stories = new_by_date.get(published_date, [])
+		new_stories = sorted(
+			new_stories,
+			key=lambda x: (
+				normalize_fingerprint_text(str(x.get('title', '') or '')),
+				normalize_fingerprint_text(str(x.get('source', '') or '')),
+				str(x.get('fingerprint', '') or ''),
+			),
+		)
+		for s in new_stories:
+			s['id'] = allocate_story_id(published_date, used_ids)
+
+	stories = stories_unique
 
 	# Canonicalize output ordering.
 	stories_out = []
@@ -2727,11 +2923,14 @@ def enrich_news(
 	yaml_text = yaml_dump(store_out)
 	wrote_yaml = write_text_file_if_changed(output_yaml, yaml_text)
 
-	review_text = format_review_csv(review_rows)
-	wrote_review = write_text_file_if_changed(review_csv, review_text)
+	wrote_review = False
+	wrote_snapshot = False
+	if len(urls) > 0:
+		review_text = format_review_csv(review_rows)
+		wrote_review = write_text_file_if_changed(review_csv, review_text)
 
-	snapshot_text = format_snapshot_queue_csv(snapshot_rows)
-	wrote_snapshot = write_text_file_if_changed(snapshot_csv, snapshot_text)
+		snapshot_text = format_snapshot_queue_csv(snapshot_rows)
+		wrote_snapshot = write_text_file_if_changed(snapshot_csv, snapshot_text)
 
 	if verbose:
 		print(f'Processed: {len(urls)}')
