@@ -78,7 +78,7 @@ fi
 
 if [[ "${DO_ENRICH}" -eq 1 ]]; then
 	echo "[news] 2/4 enrich YAML"
-	"${PY_ENRICH_BIN}" "${ROOT}/python_tools/news_enrich.py" \
+	"${PY_ENRICH_BIN}" "${ROOT}/python_tools/news_enrich.py" -v \
 		-i "${ROOT}/data/in_the_news.csv" \
 		-y "${ROOT}/data/in_the_news.yml" \
 		-r "${ROOT}/data/in_the_news_needs_review.csv" \
