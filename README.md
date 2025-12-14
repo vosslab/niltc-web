@@ -1,86 +1,24 @@
-# niltc-web
+# NILTC website
 
-MkDocs Material site for Northern Illinois LEGO Train Club (NILTC), with content exported from WordPress.
+This repository contains the source content for the Northern Illinois LEGO Train Club (NILTC) website, built with MkDocs Material.
 
-## Repo layout
+NILTC is a LEGO train club (and more) that builds and displays at public shows and events in the Chicagoland area.
 
-- `mkdocs.yml`: MkDocs config (nav/theme).
-- `mkdocs/docs/`: site content (Markdown + assets).
-- `mkdocs/docs/stylesheets/niltc.css`: all CSS overrides (legacy “black frame” look, sidebar tweaks, etc.).
-- `mkdocs/hooks.py`: MkDocs build hook (generates Past Shows pages from YAML).
-- `data/`: editable data files used to generate pages.
-- `python_tools/`: Python utilities (export + generators).
-- `.github/workflows/pages.yml`: GitHub Pages deployment via Actions.
+## What’s here
 
-## Local development
+- Public-facing pages like **Upcoming Shows**, **Past Shows**, **Standards**, photos/videos, FAQs, and club info.
+- A visual style that aims to match the legacy NILTC WordPress look (black outer gutters + centered white content).
 
-Install site dependencies (MkDocs + theme/plugins):
+## Updating content
 
-```bash
-python -m pip install -r requirements.txt
-```
+- Most pages live in `mkdocs/docs/` as `index.md` files.
+- Common pages to edit:
+  - Home: `mkdocs/docs/index.md`
+  - Upcoming shows: `mkdocs/docs/upcoming-shows/index.md`
+  - Standards: `mkdocs/docs/standards/index.md`
+  - FAQs: `mkdocs/docs/faqs/index.md`
+- **Past Shows** is generated from `data/past_shows.yml` (edit the YAML; don’t hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files).
 
-Serve locally:
+## Development / publishing
 
-```bash
-mkdocs serve -f mkdocs.yml
-```
-
-Build locally:
-
-```bash
-mkdocs build -f mkdocs.yml
-```
-
-## Past shows (generated)
-
-Past shows live in `data/past_shows.yml`.
-
-On `mkdocs build` / `mkdocs serve`, `mkdocs/hooks.py` regenerates:
-
-- `mkdocs/docs/past-shows/index.md` (overview; current year)
-- `mkdocs/docs/past-shows/<decade>s/index.md` (decade pages; auto-created from data)
-
-Manual run:
-
-```bash
-/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/generate_past_shows.py
-```
-
-Do not hand-edit the generated `mkdocs/docs/past-shows/**/index.md` files; edit the YAML instead.
-
-## WordPress -> MkDocs exporter
-
-`python_tools/wordpress_to_markdown.py` exports WordPress pages (and optionally posts) via REST API and converts HTML to Markdown using `pandoc`:
-
-- Fetches pages and optionally posts from `wp-json/wp/v2/pages` and `wp-json/wp/v2/posts`, handling pagination.
-- Adds a short randomized sleep before each request to reduce load.
-- Converts each item’s `content.rendered` HTML to GitHub-flavored Markdown using Pandoc.
-- Writes MkDocs-friendly output paths:
-  - Pages: `mkdocs/docs/<site-path>/index.md` (homepage becomes `mkdocs/docs/index.md`)
-  - Posts: `mkdocs/docs/posts/<year>/<slug>/<slug>.md`
-- Optionally downloads referenced images and relinks them either adjacent to each Markdown file or into a shared assets folder.
-- Adds YAML front matter per file with title, type (page or post), WordPress ID, original link, and date.
-- Applies a small cleanup pass:
-  - Adds a default language tag to code fences that have none
-  - Optionally inserts/enforces a single `<!-- more -->` marker for posts
-  - Optionally rewrites internal WordPress links to relative MkDocs paths using a link map
-- Produces a CSV report listing each exported item and the number of images downloaded.
-
-### Export usage
-
-The exporter requires `pandoc` on your PATH and Python with `requests` installed.
-
-```bash
-/opt/homebrew/opt/python@3.12/bin/python3.12 python_tools/wordpress_to_markdown.py \
-  -b https://niltc.org \
-  -o mkdocs/docs
-```
-
-## GitHub Pages deployment
-
-This repo publishes via GitHub Actions (see `.github/workflows/pages.yml`).
-
-In GitHub repo settings:
-
-- Settings → Pages → Source: GitHub Actions
+Build/serve instructions, the WordPress export tool, and GitHub Pages deployment are documented in `DEVELOPMENT.md`.

@@ -59,6 +59,11 @@ Primary UI goal: match the legacy NILTC WordPress look (centered white content w
 - GitHub repo settings must have Pages → Source set to “GitHub Actions”.
 - If adding MkDocs plugins, update `requirements.txt` so CI can build.
 
+## Repo docs
+
+- High-level overview for humans: `README.md`
+- Build/export/deploy details: `DEVELOPMENT.md`
+
 ## Python style
 
 - Follow `PYTHON_STYLE.md` (tabs for indentation, argparse patterns, ascii-only).
