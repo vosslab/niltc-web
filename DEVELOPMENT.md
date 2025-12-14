@@ -56,16 +56,24 @@ Do not hand-edit the generated outputs; edit `data/shows.yml` instead.
 
 In the News is a single list page generated from a URL CSV:
 
-- Input: `data/in_the_news.csv` (one URL per line; optional `title_override` column)
-- Canonical store: `data/in_the_news.yml` (schema 1)
-- Repair queue: `data/in_the_news_needs_review.csv` (hard fails + non-200 soft fails only)
+- Input: `data/in_the_news.csv` (one URL per line; `url` column only)
+- Canonical store: `data/in_the_news.yml` (schema 1; story-based, each story can have multiple URLs)
+- Repair queue: `data/in_the_news_needs_review.csv` (hard fails + non-200 responses)
+- Snapshot queue: `data/in_the_news_needs_snapshot.csv` (reachable-but-blocked URLs that need a local snapshot)
 - Output page: `mkdocs/docs/in-the-news/index.md`
 
 Manual run:
 
 ```bash
-python3 python_tools/news_enrich.py -i data/in_the_news.csv -y data/in_the_news.yml -r data/in_the_news_needs_review.csv
+python3 python_tools/news_snapshot_extract.py
+python3 python_tools/news_enrich.py -i data/in_the_news.csv -y data/in_the_news.yml -r data/in_the_news_needs_review.csv -q data/in_the_news_needs_snapshot.csv --head-cache-dir cache/news_head
 python3 python_tools/news_render.py -i data/in_the_news.yml -o mkdocs/docs/in-the-news/index.md
+```
+
+One-shot helper:
+
+```bash
+./update_news.sh
 ```
 
 MkDocs integration:
@@ -76,7 +84,9 @@ MkDocs integration:
 Notes:
 
 - The pipeline does not download/store images and does not scrape article body text.
-- If an item is a hard failure but a working replacement exists with the same source and title (or same published time), enrichment sets `replaced_by` + `suppress` so the dead duplicate is hidden.
+- Head cache is local-only and ignored by git: `cache/news_head/` (contains only `<title>`, `<meta>`, `<link>`, and JSON-LD; no body HTML).
+- Full-page snapshots are local-only and ignored by git: `snapshots/news_full/` (save browser “Webpage, Complete” HTML here, any filenames).
+- Renderer only outputs stories that have **both** `published_date` and `title` (blocked items without cached head metadata will not render).
 
 ## WordPress -> MkDocs exporter
 
