@@ -34,6 +34,12 @@ python3.12 python_tools/news_enrich.py -i data/in_the_news.csv -y data/in_the_ne
 python3 python_tools/news_render.py -i data/in_the_news.yml -o mkdocs/docs/in-the-news/index.md
 ```
 
+One-shot helper:
+
+```bash
+./update_news.sh
+```
+
 Notes:
 
 - The site page `mkdocs/docs/in-the-news/index.md` is generated from `data/in_the_news.yml`.

@@ -67,6 +67,10 @@ Articles from around the web covering NILTC.
 <div class="news-item news-src-dailyherald">
 	<div class="news-meta"><span class="news-source news-source--dailyherald">Daily Herald</span><span class="news-date">2018-03-25</span></div>
 	<div class="news-title"><a href="https://www.dailyherald.com/news/20180325/lego-enthusiasts-thrill-to-see-trains-and-villages-in-palatine" target="_blank" rel="noopener">Lego enthusiasts thrill to see trains and villages in Palatine</a></div>
+	<div class="news-extra">
+		<div class="news-author">Gilbert R. Boucher II</div>
+		<div class="news-teaser">Children rushed around Sunday watching model trains pass by towns made of...</div>
+	</div>
 </div>
 
 <div class="news-item news-src-omahaworldherald">
@@ -189,6 +193,10 @@ Articles from around the web covering NILTC.
 <div class="news-item news-src-dailyherald">
 	<div class="news-meta"><span class="news-source news-source--dailyherald">Daily Herald</span><span class="news-date">2015-03-08</span></div>
 	<div class="news-title"><a href="https://www.dailyherald.com/article/20150308/news/150308921/" target="_blank" rel="noopener">LEGO fans piece together a good time in Geneva</a></div>
+	<div class="news-extra">
+		<div class="news-author">John Starks</div>
+		<div class="news-teaser">The Northern Illinois LEGO Train Club stopped at the Geneva Public Library...</div>
+	</div>
 </div>
 
 <div class="news-item news-src-kanecountychronicle">
@@ -284,6 +292,15 @@ Articles from around the web covering NILTC.
 	<div class="news-extra">
 		<div class="news-author">Chicago Tribune</div>
 		<div class="news-teaser">Talk about downsizing. These are heady times for diorama builders, for inventors...</div>
+	</div>
+</div>
+
+<div class="news-item news-src-dailyherald">
+	<div class="news-meta"><span class="news-source news-source--dailyherald">Daily Herald</span><span class="news-date">2008-01-05</span></div>
+	<div class="news-title"><a href="https://www.dailyherald.com/20080105/news/lego-exhibit-urges-participants-to-use-their-imaginations/" target="_blank" rel="noopener">LEGO exhibit urges participants to use their imaginations</a></div>
+	<div class="news-extra">
+		<div class="news-author">Nancy Gier</div>
+		<div class="news-teaser">The attraction this weekend at the St. Charles Public Library is billed...</div>
 	</div>
 </div>
 

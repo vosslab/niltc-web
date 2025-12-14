@@ -2549,12 +2549,7 @@ def enrich_news(
 		if is_html and (not blocked):
 			head_html = build_head_cache_html(html_text)
 			# Write/update cache only if the extracted head changes.
-			cache_write_path = cache_abs
-			for _, abs_p in cache_abs_candidates:
-				if normalize_url(head_cache_path_for_url(best_url_for_cache, head_cache_dir)) and abs_p.endswith(sha1_12(normalize_url(best_url_for_cache)) + '.head.html'):
-					cache_write_path = abs_p
-					break
-			write_text_file_if_changed(cache_write_path, head_html)
+			write_text_file_if_changed(cache_abs, head_html)
 
 		# Fall back to head cache for blocked/non-HTML fetches.
 		if not head_html:
