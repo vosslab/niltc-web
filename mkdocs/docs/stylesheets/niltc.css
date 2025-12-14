@@ -158,3 +158,39 @@ body,
 .md-typeset table:not(.highlighttable):not(.md-code__table) tr:hover td {
   background: rgba(230, 73, 70, 0.06);
 }
+
+/* Sidebar: make it feel closer to the old NILTC list */
+.md-nav--primary .md-nav__link {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+/* Add subtle separators like the old site */
+.md-nav--primary .md-nav__item > .md-nav__link {
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.18);
+}
+
+/* Do not put separators under section headers */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
+  border-bottom: 2px solid var(--niltc-accent);
+}
+
+/* Replace the heavy left bar active state with a lighter highlight */
+.md-nav--primary .md-nav__item--active > .md-nav__link {
+  border-left: 0;
+  padding-left: var(--md-nav-indent, 1.2rem);
+  background: rgba(230, 73, 70, 0.06);
+  border-radius: 2px;
+}
+
+/* Nav: only shrink actual page links, not section headers */
+.md-nav--primary .md-nav__item .md-nav__link {
+  font-size: 0.85em;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+/* Keep section headers at normal size */
+.md-nav--primary > .md-nav__list > .md-nav__item--section > label.md-nav__link {
+  font-size: 1em;
+}
